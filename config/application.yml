@@ -1,0 +1,6 @@
+development:
+    DATABASE_PASSWORD: 'password'
+test:
+    DATABASE_PASSWORD: 'password'
+production:
+    DATABASE_PASSWORD: 'password'

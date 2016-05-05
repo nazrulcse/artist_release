@@ -1,6 +1,6 @@
 development:
-    DATABASE_PASSWORD: 'password'
+    DATABASE_PASSWORD: 'time'
 test:
-    DATABASE_PASSWORD: 'password'
+    DATABASE_PASSWORD: 'time'
 production:
-    DATABASE_PASSWORD: 'password'
+    DATABASE_PASSWORD: 'time'

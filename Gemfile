@@ -28,6 +28,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'figaro'
 
+
+# Use devise for authentication purpose
+# gem 'devise'
+gem 'devise'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

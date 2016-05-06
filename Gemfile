@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'figaro'
+gem 'friendly_id', '~> 5.1.0'
 
 
 # Use devise for authentication purpose

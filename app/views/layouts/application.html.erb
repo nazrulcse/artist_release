@@ -2,13 +2,28 @@
 <html>
 <head>
   <title>ArtistRelease</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="logo-section">
+  <%= link_to root_path do %>
+      <%= image_tag('logo.png') %>
+  <% end %>
+  <h3> New Artist Release </h3>
+
+  <p> info@newartistrelease.com </p>
+</div>
+
+<%= render 'shared/nav' %>
+
+<div class="content">
+  <%= yield %>
+</div>
+
+<%= render 'shared/footer' %>
 
 </body>
 </html>

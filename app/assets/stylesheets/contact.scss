@@ -1,0 +1,38 @@
+.contact-us {
+  .text-title {
+    color: #dfdfdf;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.social-link {
+  display: inline-block;
+  padding: 0;
+  margin: 10px 0;
+  li {
+    list-style: none;
+    display: inline-block;
+    a {
+      border-radius: 50%;
+      color: #ffffff;
+      display: block;
+      height: 28px;
+      padding: 6px 8px;
+      text-align: center;
+      width: 30px;
+      &.facebook {
+        background: #4E339C;
+      }
+      &.google {
+        background: #D7311F;
+      }
+      &.twitter {
+        background: #6F8FF5;
+      }
+      &.linkedin {
+        background: #3C61BB;
+      }
+    }
+  }
+}

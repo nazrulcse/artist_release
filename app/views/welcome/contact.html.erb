@@ -1,0 +1,73 @@
+<div class="bg-box clearfix">
+  <div class="row col-md-12 clearfix">
+    <div class="col-md-6 clearfix contact-us">
+      <div class="row">
+        <h3 class="lead-text-p_promotion reset-top-margin" style="color: #eda11d;">Contact</h3>
+
+        <p style="color: white; text-align: justify">
+          Build capability to upload individual’s profile information to a temporary database for review and
+          screening before making profile permanent and visible to the public. Page should be set up with six
+        </p>
+      </div>
+      <div class="row">
+        <h3 class="reset-margin text-title">Email</h3>
+
+        <p> info@newartistrelease.com </p>
+      </div>
+      <div class="row">
+        <h3 class="reset-margin text-title">Social Area</h3>
+
+        <p> Worldwide </p>
+      </div>
+
+      <div class="row">
+        <h3 class="reset-margin text-title">Share</h3>
+        <ul class="social-link">
+          <li>
+            <%= link_to 'facebook.com', class: 'facebook' do %>
+                f
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'facebook.com', class: 'google' do %>
+                g
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'facebook.com', class: 'twitter' do %>
+                t
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'facebook.com', class: 'linkedin' do %>
+                l
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <form role="form" class="">
+        <div class="form-group col-md-6">
+          <input type="text" class="span2 form-control" placeholder="First Name">
+        </div>
+        <div class="form-group col-md-6">
+          <input type="text" class="span2 form-control" placeholder="Last Name">
+        </div>
+        <div class="form-group col-md-12">
+          <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" class="form-control"
+                 placeholder="Email">
+        </div>
+        <div class="form-group col-md-12">
+          <input type="number" pattern="" class="form-control"
+                 placeholder="Phone Number            ">
+        </div>
+        <div class="form-group col-md-12">
+          <textarea cols="82" placeholder="Type Your Message Here" class="form-control"></textarea>
+        </div>
+        <button class="btn btn-warning" type="submit" style="float: right; margin-right: 15px">Submit</button>
+      </form>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

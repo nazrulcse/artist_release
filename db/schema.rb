@@ -11,7 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505174127) do
+ActiveRecord::Schema.define(version: 20160506094542) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
+    t.integer  "category_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "slug",        limit: 255
+  end
+
+  add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "first_name", limit: 255
+    t.string   "last_name",  limit: 255
+    t.string   "email",      limit: 255
+    t.string   "phone",      limit: 255
+    t.text     "message",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",           limit: 255, null: false
+    t.integer  "sluggable_id",   limit: 4,   null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope",          limit: 255
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "security_questions", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -34,9 +68,6 @@ ActiveRecord::Schema.define(version: 20160505174127) do
     t.string   "first_name",               limit: 255
     t.string   "last_name",                limit: 255
     t.string   "middle_name",              limit: 255
-    t.string   "bio",                      limit: 255
-    t.string   "category",                 limit: 255
-    t.string   "sub_category",             limit: 255
     t.integer  "security_questions_id",    limit: 4
     t.text     "security_question_answer", limit: 65535
     t.string   "confirmation_token",       limit: 255
@@ -44,6 +75,10 @@ ActiveRecord::Schema.define(version: 20160505174127) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
+    t.integer  "category_id",              limit: 4
+    t.integer  "sub_category_id",          limit: 4
+    t.string   "dob",                      limit: 255
+    t.text     "bio",                      limit: 65535
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

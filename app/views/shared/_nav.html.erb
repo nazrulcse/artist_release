@@ -1,0 +1,33 @@
+<div class="main-menu">
+  <ul>
+    <li>
+      <%= link_to 'Home', root_path %>
+    </li>
+    <li>
+      <%= link_to 'Promotion', promotion_path %>
+    </li>
+    <% Category.top_categories.each do |cat| %>
+        <li class="dropdown">
+          <a href="#"><%= cat.name %></a>
+          <ul class="dropdown-content">
+            <% cat.sub_categories.each do |scat| %>
+                <li>
+                  <%= link_to scat.name, "/#{cat.name.downcase}/#{scat.slug}" %>
+                </li>
+            <% end %>
+          </ul>
+        </li>
+    <% end %>
+    <li>
+      <%= link_to 'Contact Us', contact_path %>
+    </li>
+    <li>
+      <% if current_user.present? %>
+          <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+      <% else %>
+          <%= link_to 'Membership', new_user_session_path %>
+      <% end %>
+    </li>
+  </ul>
+  <div style="clear: both;"></div>
+</div>

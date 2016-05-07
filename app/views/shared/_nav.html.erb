@@ -12,7 +12,7 @@
           <ul class="dropdown-content">
             <% cat.sub_categories.each do |scat| %>
                 <li>
-                  <%= link_to scat.name, "/#{cat.name.downcase}/#{scat.slug}" %>
+                  <%= link_to scat.name, artists_profile_path(cat.name.downcase, scat.name.downcase) %>
                 </li>
             <% end %>
           </ul>
@@ -21,13 +21,16 @@
     <li>
       <%= link_to 'Contact Us', contact_path %>
     </li>
-    <li>
-      <% if current_user.present? %>
+    <% if current_user.present? %>
+        <li>
           <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
-      <% else %>
-          <%= link_to 'Membership', new_user_session_path %>
-      <% end %>
-    </li>
+        </li>
+        <li>
+          <%= link_to 'Profile', profile_path %>
+        </li>
+    <% else %>
+        <li> <%= link_to 'Membership', new_user_session_path %> </li>
+    <% end %>
   </ul>
   <div style="clear: both;"></div>
 </div>

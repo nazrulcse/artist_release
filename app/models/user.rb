@@ -6,16 +6,18 @@ class User < ActiveRecord::Base
   belongs_to :sub_category, class_name: 'Category', foreign_key: 'sub_category_id'
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  mount_uploader :image, ImageUploader
 
   def update_with_password(params, *options)
-    current_password = params.delete(:current_password)
+    current_password = params[:current_password]
+    params.delete(:current_password)
 
     if params[:password].blank?
       params.delete(:password)
       params.delete(:password_confirmation) if params[:password_confirmation].blank?
     end
 
-    result = if params[:password].blank? || valid_password?(current_password)
+    result = if  valid_password?(current_password)
                update_attributes(params, *options)
              else
                self.assign_attributes(params, *options)

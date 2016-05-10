@@ -1,17 +1,1 @@
-<div class="site-content-wrapper">
-  <div class="row">
-    <p class="reset-margin text-title">Email:  <%= current_user.email %></p>
-  </div>
-
-  <div class="row">
-    <p class="reset-margin text-title">First Name:  <%= current_user.first_name %></p>
-  </div>
-
-  <div class="row">
-    <p class="reset-margin text-title">Last Name:  <%= current_user.last_name %></p>
-  </div>
-
-  <div class="row">
-    <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn btn-warning' %>
-  </div>
-</div>
+<%= render 'devise/registrations/profile_edit'  %>

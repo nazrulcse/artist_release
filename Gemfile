@@ -28,8 +28,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'figaro'
 gem 'friendly_id', '~> 5.1.0'
-
-
+gem 'rmagick'
+gem 'carrierwave'
 # Use devise for authentication purpose
 # gem 'devise'
 gem 'devise'

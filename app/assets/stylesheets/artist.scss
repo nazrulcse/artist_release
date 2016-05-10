@@ -1,3 +1,24 @@
 // Place all the styles related to the artist controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile-details {
+  position: relative;
+  .actions-profile {
+    left: 87%;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    display: none;
+    cursor: pointer;
+  }
+  &:hover {
+    .actions-profile {
+      display: block;
+    }
+  }
+}
+
+.cancel_profil_update {
+  margin-left: 5px;
+}

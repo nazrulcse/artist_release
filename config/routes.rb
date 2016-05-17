@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   get '/contact' => 'welcome#contact'
-  get '/promotion' => 'welcome#promotion'
+  get '/promotion' => 'welcome#promotion', as: :promotion
 
   get '/artists/:category/:subcategory' => 'artist#index', as: :artists_profile
   get '/profile' => 'artist#profile', as: :profile

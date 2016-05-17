@@ -13,28 +13,46 @@
 
 
 <div class="home-slogan clearfix">
-  <div class="site-content-wrapper">
+  <div class="site-content-wrapper clearfix">
     <div class="col-md-12 row clearfix">
       <div class="col-md-4">
         <%= image_tag('thumbnail1.png') %>
       </div>
       <div class="col-md-8 promotion-text">
-        You can send and receive text messages using your Google
-        Voice number on the Google Voice website, in
-        the Google Voice app, through your SMS messaging app,or through Hangouts.
-        International text messages: At this time, Google Voice
-        supports sending text messages to phone numbers
-        in the U.S. and Canada, but you can receive text messages from
-        anywhere in the world. Currently, Google
-        Voice only supports short codes within the U.S.
+        <p class="reset-top-margin">
+          You can send and receive text messages using your Google
+          Voice number on the Google Voice website, in
+          the Google Voice app, through your SMS messaging app,or through Hangouts.
+          International text messages: At this time, Google Voice
+          supports sending text messages to phone numbers
+          in the U.S. and Canada, but you can receive text messages from
+          anywhere in the world. Currently, Google
+          Voice only supports short codes within the U.S.
+        </p>
+
         <p>
-          <%= link_to 'Read More...', '#', class: 'btn btn-warning pull-right' %>
+          <%= link_to 'Promotion', promotion_path, class: 'btn btn-warning' %>
         </p>
       </div>
     </div>
   </div>
+  <div class="home-info-email">
+    <%= image_tag('home_middle_banar.png') %>
+  </div>
 </div>
+<div class="about-us-wrapper">
+  <div class="site-content-wrapper">
+    <p><b class="white-title"> About Us </b></p>
 
+    <p>
+      Since 2000, musical artists, models, and book authors worldwide have relied on New Artist Release to promote their
+      talent to the world.
+      As a promotion company located just outside of Dallas, Texas, we have more than 40 years experience and knowledge
+      in the promotion,
+      talent scouting, and music industries. Every member of our team is dedicated to providing our clients with the
+      exposure and recognition
+      they need to achieve their goals.
+    </p>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -46,4 +64,99 @@
 
         });
     });
-</script>
+</script>    <p>
+      Our founder has been a respected talent in the music industry for more than 30 years. Throughout his career, he
+      advanced to the
+      promotion side of the industry and eventually moved into management and production. He realized his passion for
+      promoting after
+      meeting countless other professionals working at talent searches and live concerts across the United States. After
+      collaborating with a
+      large variety of different bands, he took on agency management and promotion due to his natural ability to
+      recognize talent.
+    </p>
+
+    <p>
+      Above all, we are committed to giving our up-and-coming artists the opportunity to be noticed by industry
+      professionals, talent scouts,
+      and the general public for their unique and impressive flair. Currently, we are expanding a network between
+      musicians across the globe to
+      exchange information and share stories. This network also will serve as a resource for the music community to find
+      professionals to fill
+      vacancies in their band.
+    </p>
+  </div>
+</div>
+
+<div class="bg-box clearfix home-contact-wrapper">
+  <div class="row col-md-12 clearfix">
+    <div class="col-md-6 clearfix contact-us">
+      <div class="row">
+        <h3 class="lead-text-p_promotion reset-top-margin white-title">Contact</h3>
+
+        <p style="text-align: justify">
+          Thank you for your interest. For questions or comments, please use the information listed here. We look
+          forward to hearing from you.
+        </p>
+      </div>
+      <div class="row">
+        <h3 class="reset-margin text-title">Email</h3>
+
+        <p> info@newartistrelease.com </p>
+      </div>
+      <div class="row">
+        <h3 class="reset-margin text-title">Social Area</h3>
+
+        <p> Worldwide </p>
+      </div>
+
+      <div class="row">
+        <h3 class="reset-margin text-title">Share</h3>
+        <ul class="social-link">
+          <li>
+            <%= link_to 'facebook.com', class: 'facebook' do %>
+                f
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'facebook.com', class: 'google' do %>
+                g
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'facebook.com', class: 'twitter' do %>
+                t
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'facebook.com', class: 'linkedin' do %>
+                l
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <form role="form" class="">
+        <div class="form-group col-md-6">
+          <input type="text" class="span2 form-control" placeholder="First Name">
+        </div>
+        <div class="form-group col-md-6">
+          <input type="text" class="span2 form-control" placeholder="Last Name">
+        </div>
+        <div class="form-group col-md-12">
+          <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" class="form-control"
+                 placeholder="Email">
+        </div>
+        <div class="form-group col-md-12">
+          <input type="number" pattern="" class="form-control"
+                 placeholder="Phone Number            ">
+        </div>
+        <div class="form-group col-md-12">
+          <textarea cols="82" placeholder="Type Your Message Here" class="form-control"></textarea>
+        </div>
+        <button class="btn btn-warning" type="submit" style="float: right; margin-right: 15px">Submit</button>
+      </form>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

@@ -9,15 +9,13 @@
           <div class="panel-body profile-details">
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put, multipart: true}) do |f| %>
                 <%= devise_error_messages! %>
-
                 <div class="actions-profile">
                   <span class="edit-profile">
                     <i class="fa fa-pencil"> </i>
                   </span>
                 </div>
-
                 <div class="field form-group ">
-                <%= image_tag  current_user.image.url(:thumb) %>
+                  <%#= image_tag  current_user.image.url(:thumb) %>
                 </div>
 
                 <div class="clearfix row">
@@ -40,11 +38,6 @@
                   <%= f.email_field :email, autofocus: true, :class => 'form-control input_field' %>
                 </div>
 
-                <div class="field form-group input_field">
-                  <%= f.label :image %><br/>
-                  <%= f.file_field :image, autofocus: true, :class => 'form-control input_field' %>
-                </div>
-
                 <div class="field form-group">
                   <%= f.label :category %><br/>
                   <span class="input_text"><%= f.object.category.present? ? f.object.category.name : '' %></span>
@@ -56,7 +49,7 @@
                       <%= f.label :sub_category %><br/>
                       <span class="input_text"><%= f.object.sub_category.present? ? f.object.sub_category.name : '' %></span>
                       <%= f.select :sub_category_id, options_for_select( f.object.category.sub_categories.map { |cat| [cat.name, cat.id] }, f.object.sub_category.present? ? f.object.sub_category.id : ''), {prompt: 'Select Sub Category...'}, class: 'form-control input_field' %>
-                   <% end %>
+                  <% end %>
                 </div>
 
                 <div class="field form-group">
@@ -67,7 +60,7 @@
                 </div>
 
                 <div class="field form-group">
-                  <%= f.label :estate %><br/>
+                  <%= f.label :estate , 'State' %><br/>
                   <span class="input_text"><%= f.object.estate %></span>
                   <%= f.text_field :estate, autofocus: true, :class => 'form-control input_field' %>
                 </div>
@@ -109,13 +102,35 @@
                   <%= f.password_field :current_password, autocomplete: "off", :class => 'form-control' %>
                 </div>
 
+                <%= f.fields_for :profile_pictures do |i| %>
+                    <div class="field form-group input_field user-profile-row  clearfix">
+                      <div class="col-sm-11">
+                        <%= i.label :image %><br/>
+                        <%= i.file_field :image, autofocus: true, :class => 'form-control input_field' %>
+                      </div>
+                      <div class="col-sm-1">
+                        <%= i.hidden_field :_destroy, value: 0, :class => "destroy-profile-picture" %>
+                        <%= link_to "javascript:;", :class => "delete-profile-picture" do %>
+                            <i class="fa fa-times-circle-o"></i>
+                        <% end %>
+                      </div>
+                    </div>
+                <% end %>
+
+                <div class="field form-group input_field">
+                  <p class="help-block right-aligned">
+                    <%= link_to "Add more picture", "javascript:;", id: "add-profile-picture" %>
+                  </p>
+                </div>
+
                 <div class="actions form-group clearfix input_field">
                   <%= f.submit :class => 'btn btn-default pull-right' %>
                   <span class="btn btn-default pull-right cancel_profil_update">Cancel</span>
                 </div>
-            <% end %>
+          <% end %>
           </div>
         </div>
+
       </div>
     </div>
     <div class="clear"></div>
@@ -142,5 +157,38 @@
             dataType: 'script',
             data: {category_id: category_id},
         });
+    });
+
+    $(function () {
+        $('#add-profile-picture').on('click', function () {
+            var content = $('.user-profile-row:last');
+            var content_html = content.wrap('<p/>').parent().html();
+            content.unwrap();
+
+            var id = $('.user-profile-row:last [id^="user_profile_pictures_attributes_"][id$="image"]').attr('id');
+            id = id.replace("user_profile_pictures_attributes_", "").replace("_image", "");
+            var new_id = parseInt(id) + 1;
+
+            var regex = new RegExp("_" + id + "_", 'g');
+            content_html = content_html.replace(regex, "_" + new_id + "_");
+
+            regex = new RegExp("\\[" + id + "\\]", 'g');
+            content_html = content_html.replace(regex, "[" + new_id + "]");
+
+            content.after(content_html);
+            content = $('.user-profile-row:last');
+            content.find('.destroy-profile-picture').val("0");
+            //content.find('input, select').val("");
+            content.show();
+        });
+
+    });
+
+    $(document).on('click', '.delete-profile-picture', function () {
+        var education = $(this).closest('.user-profile-row');
+        var destroy = education.find('.destroy-profile-picture');
+        destroy.val("1");
+        education.hide();
+        return false;
     });
 </script>

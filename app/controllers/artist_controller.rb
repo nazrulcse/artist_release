@@ -4,6 +4,7 @@ class ArtistController < ApplicationController
 
   def profile
     @resource = current_user
+    @resource.profile_pictures.build
   end
 
   def load_subcategory

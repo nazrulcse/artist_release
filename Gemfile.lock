@@ -41,6 +41,7 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
+    bxslider-rails (4.2.5.1)
     byebug (8.2.5)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
@@ -166,6 +167,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bxslider-rails
   byebug
   carrierwave
   coffee-rails (~> 4.1.0)

@@ -3,10 +3,13 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   belongs_to :security_question
   belongs_to :category
+  has_many :profile_pictures
   belongs_to :sub_category, class_name: 'Category', foreign_key: 'sub_category_id'
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  mount_uploader :image, ImageUploader
+
+  accepts_nested_attributes_for :profile_pictures, allow_destroy: true
+
 
   def update_with_password(params, *options)
     current_password = params[:current_password]

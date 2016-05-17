@@ -33,6 +33,7 @@ gem 'carrierwave'
 # Use devise for authentication purpose
 # gem 'devise'
 gem 'devise'
+gem 'bxslider-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

@@ -4,9 +4,6 @@
     <li><%= image_tag('slider.jpg') %> </li>
     <li><%= image_tag('slider1.jpg') %> </li>
     <li><%= image_tag('slider2.jpg') %> </li>
-    <%# @user.profile_pictures.each do |pic| %>
-    <!--<li><%#= image_tag(pic.image.url(:slider)) %></li>-->
-    <%#end%>
   </ul>
 </div>
 
@@ -153,7 +150,7 @@
 
 
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('.bxslider').bxSlider({
             auto: true,
             infiniteLoop: true,

@@ -14,3 +14,6 @@
  *= require bxslider
  *= require_self
  */
+body {
+    font-family: 'FontAwesome';
+}

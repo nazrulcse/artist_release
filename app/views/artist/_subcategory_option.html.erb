@@ -1,2 +1,2 @@
-  <%= label_tag :sub_category_id, "Sub Category" %><br/>
-  <%= select_tag "user[sub_category_id]", options_for_select(@subcategories.collect{ |u| [u.name, u.id]}, :selected=>current_user.sub_category.present? ? current_user.sub_category : '' ) , {:class =>"form-control"} %>
+<%= label_tag :sub_category_id, "Specialization area" %><br/>
+<%= select_tag "user[sub_category_id]", options_for_select(@subcategories.collect { |u| [u.name, u.id] }, :selected => current_user.sub_category.present? ? current_user.sub_category : ''), {:class => "form-control"} %>

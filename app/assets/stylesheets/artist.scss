@@ -4,19 +4,14 @@
 
 .profile-details {
   position: relative;
-  .actions-profile {
-    left: 87%;
-    position: absolute;
-    right: 0;
-    top: 5px;
-    display: none;
-    cursor: pointer;
-  }
-  &:hover {
-    .actions-profile {
-      display: block;
-    }
-  }
+}
+
+.actions-profile {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  right: 20px;
+  top: 5px;
 }
 
 .cancel_profil_update {
@@ -27,4 +22,41 @@
   border: none !important;
 }
 
-.bx-wrapper, .bx-viewport, .bx-wrapper img {height: 400px !important;}
+.bx-wrapper, .bx-viewport, .bx-wrapper img {
+  height: 400px !important;
+}
+
+.upload-profile-images {
+
+}
+
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+  margin: 10px 10px 10px 0;
+}
+
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.image-upload-wrapper {
+  position: relative;
+  .remove-upload-image {
+    font-size: 18px;
+    position: absolute;
+    right: 5px;
+    top: -10px;
+    a {
+      color: #d10522;
+    }
+  }
+}

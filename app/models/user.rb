@@ -10,6 +10,18 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :profile_pictures, allow_destroy: true
 
+  def profile_image
+    if profile_pictures.present?
+      profile_pictures.first.image_url(:large)
+    else
+      'profile_image.png'
+    end
+  end
+
+  def full_name
+    name = first_name.present? ? first_name : ''
+    name << (last_name.present? ? ' ' << last_name : '')
+  end
 
   def update_with_password(params, *options)
     current_password = params[:current_password]
@@ -20,7 +32,7 @@ class User < ActiveRecord::Base
       params.delete(:password_confirmation) if params[:password_confirmation].blank?
     end
 
-    result = if  valid_password?(current_password)
+    result = if valid_password?(current_password)
                update_attributes(params, *options)
              else
                self.assign_attributes(params, *options)

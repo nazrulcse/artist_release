@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
+# ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
+
+gem 'tinymce-rails'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2', '0.3.18'
 # Use SCSS for stylesheets

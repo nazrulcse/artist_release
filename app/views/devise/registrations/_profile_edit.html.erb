@@ -82,7 +82,9 @@
               <div class="field form-group">
                 <%= f.label :bio %><br/>
                 <span class="input_text"><%= f.object.bio %></span>
-                <%= f.text_area :bio, autofocus: true, :class => 'form-control input_field' %>
+                <div class="input_field">
+                  <%= f.text_area :bio, autofocus: true, :class => 'form-control tinymce',:rows => 20, :cols => 120 %>
+                </div>
               </div>
 
               <div class="upload-profile-images clearfix">
@@ -203,5 +205,13 @@
         destroy.val("1");
         education.hide();
         return false;
+    });
+
+    $(document).ready(function(){
+        tinyMCE.init({
+            selector: ".tinymce",
+            menubar:false,
+            height : "250"
+        });
     });
 </script>

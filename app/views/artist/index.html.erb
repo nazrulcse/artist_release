@@ -1,3 +1,22 @@
 <div class="site-content-wrapper">
-  <h1> No Artist Found </h1>
+  <div class="artist-header">
+    Artist <i class="fa fa-angle-double-right"></i> <%= params[:category] %>
+    <i class="fa fa-angle-double-right"></i> <%= params[:subcategory] %>
+  </div>
+
+  <div class="promotion-profile reset-padding artists-list">
+    <ul class="row first" data-bsp-ul-id="bsp-atuw" data-bsp-ul-index="0">
+      <% @artists.each do |artist| %>
+          <li class="col-lg-2 col-md-4 col-sm-3 col-xs-4 col-xxs-12 bspHasModal" data-bsp-li-index="0">
+            <%= link_to promotion_path(artist: artist.id) do %>
+                <%= image_tag(artist.profile_image, class: 'img-responsive') %>
+                <div class="text"> <%= artist.full_name %> </div>
+            <% end %>
+          </li>
+      <% end %>
+      <% unless @artists.present? %>
+          <li class="no-artist-found text-center"> No artist found :(</li>
+      <% end %>
+    </ul>
+  </div>
 </div>

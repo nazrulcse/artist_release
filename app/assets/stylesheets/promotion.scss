@@ -28,14 +28,22 @@
   ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    li {
+      margin-bottom: 10px;
+    }
   }
   .text {
     background: #fff none repeat scroll 0 0;
     color: #666;
     font-family: "Bree Serif";
     font-size: 11px;
-    margin-bottom: 10px;
     padding: 12px;
   }
+}
+
+.portfolio-title {
+  text-align: center;
+  border-bottom: 1px dashed #ccc;
+  padding: 0 0 5px 0;
+  margin-bottom: 15px;
 }

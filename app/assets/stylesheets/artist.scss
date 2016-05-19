@@ -60,3 +60,25 @@
     }
   }
 }
+
+.artist-header {
+  border-bottom: 1px dashed #cccccc;
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding: 7px 0 10px 5px;
+}
+
+.artists-list {
+  img {
+    height: 110px;
+    width: 100%;
+  }
+  ul {
+    li {
+      a {
+        display: block;
+        border: solid 1px #ffffff;
+      }
+    }
+  }
+}

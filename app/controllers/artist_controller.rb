@@ -1,7 +1,11 @@
 class ArtistController < ApplicationController
   def index
     @sub_category = Category.find_by_name(params[:subcategory])
-    @artists = User.where(sub_category_id: @sub_category.id)
+    if @sub_category.present?
+      @artists = User.where(sub_category_id: @sub_category.id)
+    else
+      @artists = []
+    end
   end
 
   def profile

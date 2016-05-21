@@ -36,6 +36,7 @@ gem 'carrierwave'
 # gem 'devise'
 gem 'devise'
 gem 'bxslider-rails'
+gem 'stripe', '1.30.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

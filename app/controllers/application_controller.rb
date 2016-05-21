@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|
-      u.permit(:first_name,  :email, :password, :password_confirmation,:last_name)
+      u.permit(:first_name, :email, :password, :password_confirmation, :last_name)
     end
 
     devise_parameter_sanitizer.permit(:account_update) do |u|
@@ -16,6 +16,20 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer.permit(:sign_in) do |u|
       u.permit(:email, :password)
+    end
+  end
+
+  def after_sign_in_path_for(resource)
+    nex_path = resource.subscription.present? ? profile_path : new_subscription_path
+    request.env['omniauth.origin'] || stored_location_for(resource) || nex_path
+  end
+
+  def subscribed_user
+    return false unless current_user.present?
+    if current_user.subscription.present?
+      true
+    else
+      redirect_to new_subscription_path
     end
   end
 

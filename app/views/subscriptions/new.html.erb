@@ -1,0 +1,75 @@
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        var handler = StripeCheckout.configure({
+            key: '<%= ENV['PUBLISHABLE_KEY'] %>',
+            token: function (token) {
+                // Use the token to create the charge with a server-side script.
+                // You can access the token ID with `token.id`
+                var $input = $('<input type=hidden name=stripeToken />').val(token.id);
+                $('form').append($input).submit();
+            }
+        });
+
+        $('#payment_btn').on('click', function (e) {
+            // Open Checkout with further options
+            var amount = $(".subscription-plans input[type=radio]:checked").val();
+            $('#silvrback_plan').val(amount);
+            handler.open({
+                name: 'Silvrback Subscription',
+                description: 'Annual Membership',
+                email: "<%= current_user.email %>",
+                amount: amount //2999
+            });
+            e.preventDefault();
+        });
+
+        // Close Checkout on page navigation
+        $(window).on('popstate', function () {
+            handler.close();
+        });
+
+    });
+</script>
+
+<div class="container subscription-wrapper">
+  <h1 class="admin_header_title">Artist Release Subscription</h1>
+
+  <h3 class="site_subtitle">
+    <i>Lean, beautiful and distraction feature</i>
+  </h3>
+
+  <div class="customize_page_box">
+    <h1 style="margin:0;">
+      Select Your Subscription Plan
+    </h1>
+
+    <ul class="subscription-plans">
+      <% Subscription.subscription_plans.each do |key, value| %>
+          <li>
+            <label>
+              <input type="radio" name="plan_amount" value="<%= value * 100 %>" checked>
+              <%= key %> –
+              US$<%= value %>
+            </label>
+          </li>
+      <% end %>
+    </ul>
+
+
+    <div class="checkout-btn">
+      <a href="javascript:void(0)" class="card-btn" id="payment_btn">
+        <span>Subscribe with your Credit Card</span>
+        <img src="/assets/card-img.png" alt="img" class="card-img"/>
+      </a>
+    </div>
+
+
+    <%= form_tag subscriptions_path, :id => 'card_submit' do %>
+        <!-- default value is annual subscription -->
+        <input type="hidden" name="plan" id="silvrback_plan"/>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+// Place all the styles related to the subscriptions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.subscription-plans {
+  margin: 15px auto;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+  width: 270px;
+  li {
+    padding: 5px 0;
+  }
+}
+
+img.card-img {
+  background: #ffffff none repeat scroll 0 0;
+  margin-left: 10px;
+  padding: 3px;
+}
+
+.card-btn span {
+  border: medium none;
+  color: #000000;
+  display: block;
+  float: left;
+  font-family: arial;
+  font-size: 14px;
+  font-weight: bold;
+  max-width: 146px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 0 0;
+}
+
+a.card-btn {
+  background: #b5d3eb none repeat scroll 0 0;
+  border: 1px solid #7c95a3;
+  float: none;
+  margin: 0 0 5px;
+  padding: 9px 62px;
+  display: inline-block;
+}
+
+.subscription-panel {
+  margin-top: 15px;
+  color: #333333;
+}
+
+.subscription-wrapper {
+  text-align: center;
+  padding-top: 20px;
+  font-family: Helvetica;
+  .customize_page_box {
+    font-family: "ff-tisa-web-pro", georgia;
+    border: 1px solid #555;
+    border-radius: 2px;
+    margin: 10px auto 30px auto;
+    padding: 30px;
+    position: relative;
+    width: 70%;
+  }
+
+  .admin_header_title {
+    color: #fff;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+.site_subtitle {
+  color: #6d7a84;
+  font-size: 23px;
+  padding-bottom: 20px;
+}

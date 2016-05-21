@@ -14,10 +14,6 @@
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put, multipart: true}) do |f| %>
               <%= devise_error_messages! %>
 
-              <div class="field form-group ">
-                <%#= image_tag  current_user.image.url(:thumb) %>
-              </div>
-
               <div class="clearfix row">
                 <div class="field form-group col-sm-6">
                   <%= f.label :first_name %><br/>
@@ -59,6 +55,56 @@
                 <% end %>
               </div>
 
+              <div class="music special-area">
+                <div class="form-group">
+                  <%= label_tag :band, 'You are a band or individual' %> <br/>
+                  <span class="input_text"><%= f.object.band %></span>
+                  <%= f.select :band, options_for_select(User::MUSIC_BAND.collect { |key, value| [value, key] }, f.object.band.present? ? f.object.band : ''), {prompt: 'Select one...'}, class: 'input_field' %>
+                </div>
+                <div class="band clearfix row">
+                  <div class="field form-group col-sm-6">
+                    <%= f.label :role, 'What is your role' %><br/>
+                    <span class="input_text"><%= f.object.role %></span>
+                    <%= f.text_field :role, :class => 'form-control input_field' %>
+                  </div>
+                  <div class="field form-group col-sm-6">
+                    <%= f.label :how_long_play, 'How long you are play' %><br/>
+                    <span class="input_text"><%= f.object.how_long_play %></span>
+                    <%= f.text_field :how_long_play, :class => 'form-control input_field' %>
+                  </div>
+                </div>
+                <div class="individual">
+                  <div class="field form-group">
+                    <%= f.label :what_play, 'What you play' %><br/>
+                    <span class="input_text"><%= f.object.what_play %></span>
+                    <%= f.text_field :what_play, :class => 'form-control input_field' %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="models special-area">
+                <div class="clearfix row">
+                  <div class="field form-group col-sm-6">
+                    <%= f.label :how_long_perform, 'How long you perform' %><br/>
+                    <span class="input_text"><%= f.object.how_long_perform %></span>
+                    <%= f.text_field :how_long_perform, :class => 'form-control input_field' %>
+                  </div>
+                  <div class="field form-group col-sm-6">
+                    <%= f.label :age, 'Age' %><br/>
+                    <span class="input_text"><%= f.object.age %> Years</span>
+                    <%= f.text_field :age, :class => 'form-control input_field' %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="books special-area">
+                <div class="field form-group">
+                  <%= f.label :how_long_write, 'How long you have long writing' %><br/>
+                  <span class="input_text"><%= f.object.how_long_write %></span>
+                  <%= f.text_field :how_long_write, :class => 'form-control input_field' %>
+                </div>
+              </div>
+
               <div class="field form-group">
                 <%= f.label :address %><br/>
                 <span class="input_text"><%= f.object.address %></span>
@@ -81,9 +127,12 @@
 
               <div class="field form-group">
                 <%= f.label :bio %><br/>
-                <span class="input_text"><%= f.object.bio %></span>
+                <span class="input_text">
+                  <%= raw f.object.bio %>
+                </span>
+
                 <div class="input_field">
-                  <%= f.text_area :bio, autofocus: true, :class => 'form-control tinymce',:rows => 20, :cols => 120 %>
+                  <%= f.text_area :bio, autofocus: true, :class => 'form-control tinymce', :rows => 20, :cols => 120 %>
                 </div>
               </div>
 
@@ -116,10 +165,12 @@
               </div>
               <div class="clear"></div>
               <fieldset class="input_field clearfix">
-                <legend> Password Zone</legend>
+                <legend> Password Zone
+                  <i class="reset-password-info">(leave blank if you don't want to change your password)</i>
+                </legend>
                 <div>
                   <div class="field form-group">
-                    <%= f.label :password %> <i>(leave blank if you don't want to change your password)</i>
+                    <%= f.label :password %>
                     <% if @minimum_password_length %>
                         <em>(<%= @minimum_password_length %> characters minimum)</em>
                     <% end %><br/>
@@ -129,12 +180,6 @@
                   <div class="field form-group input_field">
                     <%= f.label :password_confirmation %><br/>
                     <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control' %>
-                  </div>
-
-                  <div class="field form-group input_field">
-                    <%= f.label :current_password %>
-                    <i style="color: red;">(we need your current password to confirm your changes)</i><br/>
-                    <%= f.password_field :current_password, autocomplete: "off", :class => 'form-control' %>
                   </div>
                 </div>
               </fieldset>
@@ -197,7 +242,35 @@
             content.show();
         });
 
+        $('#user_category_id').change(function () {
+            var category = $(this).find('option:selected').text();
+            $('.special-area').hide();
+            if (category != '') {
+                $('.' + category.toLowerCase()).show();
+            }
+        });
+
+        $('#user_band').change(function () {
+            var band = $(this).find('option:selected').text();
+            $('.band, .individual').hide();
+            if (band != '') {
+                $('.' + band.toLowerCase()).show();
+            }
+        });
+
+        show_individual_fields();
     });
+
+    function show_individual_fields() {
+        var category = $('#user_category_id').find('option:selected').text();
+        if (category != '') {
+            $('.' + category.toLowerCase()).show();
+        }
+        var category_band = $('#user_band').find('option:selected').text();
+        if (category_band != '' && $('#user_band').val() != '') {
+            $('.' + category_band.toLowerCase()).show();
+        }
+    }
 
     $(document).on('click', '.delete-profile-picture', function () {
         var education = $(this).closest('.user-profile-row');
@@ -207,11 +280,11 @@
         return false;
     });
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         tinyMCE.init({
             selector: ".tinymce",
-            menubar:false,
-            height : "250"
+            menubar: false,
+            height: "250"
         });
     });
 </script>

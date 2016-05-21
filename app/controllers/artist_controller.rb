@@ -1,12 +1,19 @@
 class ArtistController < ApplicationController
+  before_action :subscribed_user
+
   def index
     @sub_category = Category.where('lower(name) = ?', params[:subcategory].downcase).first
     @artists = @sub_category.users
   end
 
   def profile
-    @resource = current_user
-    @resource.profile_pictures.build
+    if current_user.subscription.present?
+      @resource = current_user
+      @resource.profile_pictures.build
+    else
+      redirect_to new_subscription_path
+    end
+
   end
 
   def load_subcategory

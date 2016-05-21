@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => { :registrations => :registrations }
+  devise_for :users, :controllers => {:registrations => :registrations}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/artists/:category/:subcategory' => 'artist#index', as: :artists_profile
   get '/profile' => 'artist#profile', as: :profile
   get '/load_subcategory' => 'artist#load_subcategory', as: :load_subcategory
+  resources :subscriptions, only: [:new, :create, :delete]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

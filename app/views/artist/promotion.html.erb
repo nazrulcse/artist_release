@@ -5,8 +5,8 @@
         <div class="bio-content">
 
           <div class="bio-box">
-            <div style="background:url('<%= assets_path(@artist.profile_image) %>') center center no-repeat; background-size:cover;" class="main-img">&nbsp;</div>
-            <h1 class=""> <%= @artist.name %> </h1>
+            <div style="background:url('<%= asset_path(@artist.profile_image) %>') center center no-repeat; background-size:cover;" class="main-img">&nbsp;</div>
+            <h1 class=""> <%= @artist.full_name %> </h1>
 
             <h2 class="subheader"><%= @artist.category.name %>, <%= @artist.sub_category.name %></h2>
 

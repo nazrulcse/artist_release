@@ -4,6 +4,10 @@ class WelcomeController < ApplicationController
     #@user = User.order("RAND(id)").first
   end
 
+  def search
+    
+  end
+
   def promotion
     @artist = User.find_by_id(params[:artist])
   end

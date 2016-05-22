@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     if profile_pictures.present?
       profile_pictures.first.image_url(:large)
     else
-      'profile_image.png'
+      '/assets/profile_image.png'
     end
   end
 

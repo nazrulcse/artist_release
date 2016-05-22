@@ -16,6 +16,10 @@ class ArtistController < ApplicationController
 
   end
 
+  def promotion
+    @artist = User.find_by_id(params[:id])
+  end
+
   def load_subcategory
     category = Category.find_by_id(params[:category_id])
     @subcategories = category.sub_categories

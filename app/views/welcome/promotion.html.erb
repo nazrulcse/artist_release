@@ -54,27 +54,3 @@
     </div>
   </div>
 </div>
-<div>
-  <div class="site-content-wrapper promotion-profile">
-    <div class="portfolio-title white-title">
-      Portfolio Item
-    </div>
-
-    <ul class="row gallery clearfix">
-      <% @artist.profile_pictures.each do |picture| %>
-          <li class="col-lg-2 col-md-4 col-sm-3 col-xs-4 col-xxs-12 bspHasModal" data-bsp-li-index="0">
-            <%= link_to picture.image_url(:slider), rel: 'prettyPhoto[pp_gal]', title: 'Portfolio sample' do %>
-                <%= image_tag(picture.image_url(:large), class: 'img-responsive') %>
-            <% end %>
-            <div class="text">Profile Image</div>
-          </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-
-<script type="text/javascript">
-    $(function () {
-        $("a[rel^='prettyPhoto']").prettyPhoto({autoplay_slideshow: false, social_tools: '', show_title: ''});
-    });
-</script>

@@ -6,13 +6,15 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-  get '/contact' => 'welcome#contact'
+  resources :contacts, only: [:index, :create]
   get '/promotion' => 'welcome#promotion', as: :promotion
 
   get '/artists/:category/:subcategory' => 'artist#index', as: :artists_profile
   get '/profile' => 'artist#profile', as: :profile
+  get '/profile/:id' => 'artist#promotion', as: :promotion_profile
   get '/load_subcategory' => 'artist#load_subcategory', as: :load_subcategory
   resources :subscriptions, only: [:new, :create, :delete]
+  get '/search' => 'welcome#search'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,156 @@
+<div class="container artist-promotion">
+  <div class="bg-gray">
+    <div class="col-lg-12 row">
+      <div class="col-md-8">
+        <div class="bio-content">
+
+          <div class="bio-box">
+            <div style="background:url('<%= @artist.profile_image %>') center center no-repeat; background-size:cover;" class="main-img">&nbsp;</div>
+            <h1 class="">Rob Harkness</h1>
+
+            <h2 class="subheader"><%= @artist.category.name %>, <%= @artist.sub_category.name %></h2>
+
+            <h2 class="subheader"><%= @artist.estate %>, <%= @artist.city %>, <%= @artist.country %></h2>
+
+            <div class="social-info">
+              <a target="_new" class="facebook-likes" href="http://www.facebook.com/barnproductions">
+                <i class="fa fa-facebook-square"></i>
+                <span data-fb-id="barnproductions" class="facebook-like-count">1,149</span>
+                Likes
+              </a>
+            </div>
+          </div>
+
+          <div class="box-container">
+
+            <div class="bio-section">
+              <h2 class="reset-top-padding">ABOUT</h2>
+
+              <div class="content">
+                <%= raw @artist.bio %>
+              </div>
+
+              <div class="bio-section">
+                <h2>ADDRESS</h2>
+
+                <div class="content">
+                  <%= @artist.address %>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="image-gallery">
+            <div class="portfolio-title white-title" style="color: #444444;">
+              Portfolio Item
+            </div>
+
+            <ul class="row gallery clearfix flexslider">
+              <%# @artist.profile_pictures.each do |picture| %>
+              <li class="col-lg-2 col-md-4 col-sm-3 col-xs-4 col-xxs-12 bspHasModal" data-bsp-li-index="0">
+                <%= link_to image_url('photodune-514834-touchscreen-technology-xs.jpg'), rel: 'prettyPhoto[pp_gal]' do %>
+                    <%= image_tag('photodune-514834-touchscreen-technology-xs.jpg') %>
+                <% end %>
+                <%#= link_to picture.image_url(:slider), rel: 'prettyPhoto[pp_gal]', title: 'Portfolio sample' do %>
+                <%#= image_tag(picture.image_url(:large), class: 'img-responsive') %>
+                <%# end %>
+              </li>
+              <li class="col-lg-2 col-md-4 col-sm-3 col-xs-4 col-xxs-12 bspHasModal" data-bsp-li-index="0">
+                <%= link_to image_url('photodune-461673-retro-party-xs.jpg'), rel: 'prettyPhoto[pp_gal]' do %>
+                    <%= image_tag('photodune-461673-retro-party-xs.jpg') %>
+                <% end %>
+              </li>
+              <li class="col-lg-2 col-md-4 col-sm-3 col-xs-4 col-xxs-12 bspHasModal" data-bsp-li-index="0">
+                <%= link_to image_url('promotion-slider.jpg'), rel: 'prettyPhoto[pp_gal]' do %>
+                    <%= image_tag('promotion-slider.jpg') %>
+                <% end %>
+              </li>
+              <%# end %>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="bio-content-info">
+          <div id="floating-form">
+
+            <div class="section no-border">
+              <div class="section-title">INFORMATION</div>
+
+              <ul class="info-list">
+                <li class="cf">
+                  <div class="item">Track</div>
+                  <div class="rate"><%= @artist.category.name %></div>
+                </li>
+                <li class="cf">
+                  <div class="item">Area of Specialization</div>
+                  <div class="rate"> <%= @artist.sub_category.name %> </div>
+                </li>
+                <% if @artist.category.name.downcase == 'music' %>
+                    <% if @artist.band.downcase == 'band' %>
+                        <li>
+                          <div class="item">Role</div>
+                          <div class="rate"> <%= @artist.role %> </div>
+                        </li>
+                        <li>
+                          <div class="item">How Long Play</div>
+                          <div class="rate"> <%= @artist.how_long_play %> </div>
+                        </li>
+                    <% else %>
+                        <li>
+                          <div class="item">What Play</div>
+                          <div class="rate"> <%= @artist.what_play %> </div>
+                        </li>
+                    <% end %>
+                <% elsif @artist.category.name.downcase == 'models' %>
+                    <li>
+                      <div class="item">How Long Perform</div>
+                      <div class="rate"> <%= @artist.how_long_perform %> </div>
+                    </li>
+                    <li>
+                      <div class="item">Age</div>
+                      <div class="rate"> <%= @artist.age %> Years</div>
+                    </li>
+                <% elsif @artist.category.name.downcase == 'books' %>
+                    <li>
+                      <div class="item">How long have long writing</div>
+                      <div class="rate"> <%= @artist.how_long_write %> </div>
+                    </li>
+                <% end %>
+              </ul>
+
+            </div>
+
+            <div class="section contact-button-container">
+              <div class="button-row">
+                <a class="btn btn-warning" href="#">CONTACT ROB HARKNESS</a>
+              </div>
+            </div>
+
+
+            <div class="section">
+              <div class="button-row">
+                <a data-share-message="Check out Rob Harkness on Studiotime.io http://www.studiotime.io/profile/rob-harkness/" class="btn btn-info btn-large twitter twitter-share-button" href="http://www.twitter.com/share?url=http://www.studiotime.io/profile/rob-harkness/">
+                  <i class="fa fa-twitter"></i> Share On Twitter
+                </a>
+                <a data-share-url="http://www.studiotime.io/profile/rob-harkness/" class="btn btn-info" href="https://www.facebook.com/sharer/sharer.php?u=http://www.studiotime.io/profile/rob-harkness/"><i class="fa fa-facebook"></i>
+                  Share On Facebook
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("a[rel^='prettyPhoto']").prettyPhoto({autoplay_slideshow: false, social_tools: '', show_title: ''});
+    });
+</script>

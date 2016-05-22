@@ -19,7 +19,7 @@
         </li>
     <% end %>
     <li>
-      <%= link_to 'Contact Us', contact_path %>
+      <%= link_to 'Contact Us', contacts_path %>
     </li>
     <% if current_user.present? %>
         <li>
@@ -31,6 +31,12 @@
     <% else %>
         <li> <%= link_to 'Membership', new_user_session_path %> </li>
     <% end %>
+    <li id="site-search">
+      <form class="form-wrapper" action="/search" method="get">
+        <input type="text" name='search' placeholder="Search here...">
+        <button type="submit">Search</button>
+      </form>
+    </li>
   </ul>
   <div style="clear: both;"></div>
 </div>

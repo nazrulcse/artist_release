@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bxslider
+//= require moment
+//= require bootstrap-datetimepicker
 //= require tinymce-jquery
 //= require turbolinks
+//= require bootstrap-typeahead
 //= require_tree .

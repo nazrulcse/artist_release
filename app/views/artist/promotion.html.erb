@@ -92,11 +92,11 @@
                 <% if @artist.category.name.downcase == 'music' %>
                     <% if @artist.band.downcase == 'band' %>
                         <li>
-                          <div class="item">Role</div>
+                          <div class="item">Instrument Played and/or Vocalist</div>
                           <div class="rate"> <%= @artist.role %> </div>
                         </li>
                         <li>
-                          <div class="item">How Long Play</div>
+                          <div class="item">Years of Experience</div>
                           <div class="rate"> <%= @artist.how_long_play %> </div>
                         </li>
                     <% else %>
@@ -107,7 +107,7 @@
                     <% end %>
                 <% elsif @artist.category.name.downcase == 'models' %>
                     <li>
-                      <div class="item">How Long Perform</div>
+                      <div class="item">Years of Experience</div>
                       <div class="rate"> <%= @artist.how_long_perform %> </div>
                     </li>
                     <li>

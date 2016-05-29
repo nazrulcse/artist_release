@@ -1,0 +1,93 @@
+// Place all the styles related to the events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.event-wrapper {
+  padding: 10px 0;
+  color: #fdfdfd;
+  .customize_box {
+    font-family: "ff-tisa-web-pro", georgia;
+    border: 1px solid #555;
+    border-radius: 2px;
+    margin: 10px auto 30px auto;
+    padding: 15px;
+    position: relative;
+    width: 70%;
+  }
+}
+
+.event-details {
+  color: #333333;
+  tr {
+    td:first-child {
+      width: 120px;
+    }
+  }
+}
+
+.table-white {
+  background: #ffffff;
+}
+
+.event-lists {
+  background: #fdfdfd;
+  color: #333333;
+  margin-top: 10px;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      padding: 8px 0;
+      min-height: 75px;
+      margin-bottom: 10px;
+      border-bottom: solid 1px #CCCCCC;
+      .event-link {
+        font-size: 20px;
+      }
+      position: relative;
+      .event-actions {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        a {
+          padding: 4px;
+          i.fa-times {
+            color: #D83C3C;
+          }
+        }
+      }
+    }
+  }
+  .event-date {
+    float: left;
+    width: 100px;
+    padding: 0 10px;
+    .date {
+      background: #ffffcc none repeat scroll 0 0;
+      float: left;
+      margin-bottom: 18px;
+      padding: 3px;
+      width: 80px;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+      .day {
+        display: block;
+        font: bold 3em "American Typewriter", Georgia, sans-serif;
+        padding: 3px;
+        text-align: center;
+      }
+      .month {
+        background: #000 none repeat scroll 0 0;
+        color: #fff;
+        display: block;
+        font-size: 0.75em;
+        padding: 3px;
+        text-align: center;
+      }
+    }
+  }
+
+  .event-item-details {
+    margin-left: 130px;
+    width: calc(100% - 130px);
+  }
+}

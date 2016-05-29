@@ -1,0 +1,16 @@
+<div class="site-content-wrapper clearfix">
+  <div class="event-wrapper">
+    <div class="events clearfix">
+      <%= link_to 'New Event', new_event_path, class: 'btn btn-default pull-right' %>
+    </div>
+    <div class="event-lists">
+      <ul>
+        <% @events.each do |event| %>
+            <li>
+              <%= render event %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -4,7 +4,7 @@ class Subscription < ActiveRecord::Base
   def self.subscription_plans
     {
         'Regular Subscription' => 99,
-        'EPK Subscription' => 59
+        'Additional Services: EPK (Electronic Press Kit)' => 59
     }
   end
 

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   belongs_to :security_question
   belongs_to :category
   has_many :profile_pictures
+  has_many :events
   has_one :subscription
   belongs_to :sub_category, class_name: 'Category', foreign_key: 'sub_category_id'
   devise :database_authenticatable, :registerable,

@@ -34,7 +34,7 @@
 }
 
 body {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .reset-margin {
@@ -132,4 +132,8 @@ body {
       }
     }
   }
+}
+
+.bootstrap-datetimepicker-widget {
+  color: #333333;
 }

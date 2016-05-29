@@ -38,6 +38,13 @@ gem 'devise'
 gem 'bxslider-rails'
 gem 'stripe', '1.30.0'
 
+gem 'kaminari-bootstrap', '~> 3.0.1'
+
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+
+gem 'bootstrap-datepicker-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

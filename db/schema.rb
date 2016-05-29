@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521171938) do
+ActiveRecord::Schema.define(version: 20160529134938) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 20160521171938) do
     t.text     "message",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.datetime "date"
+    t.string   "location",    limit: 255
+    t.text     "description", limit: 65535
+    t.string   "image",       limit: 255
+    t.integer  "user_id",     limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

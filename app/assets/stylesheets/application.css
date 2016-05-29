@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require bxslider
+ *= require bootstrap-datetimepicker
+ *= require bootstrap-datepicker
  *= require_self
  */
 body {

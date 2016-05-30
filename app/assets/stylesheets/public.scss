@@ -80,8 +80,10 @@ body {
   color: #333333;
 }
 
-.input_field {
-  display: none;
+form {
+  .input_field {
+    display: none;
+  }
 }
 
 .reset-password-info {

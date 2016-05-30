@@ -6,12 +6,15 @@
   position: relative;
 }
 
+.profile-custom-header {
+  padding: 10px;
+  position: relative;
+  text-align: center;
+}
+
 .actions-profile {
   cursor: pointer;
   display: block;
-  position: absolute;
-  right: 20px;
-  top: 5px;
 }
 
 .cancel_profil_update {

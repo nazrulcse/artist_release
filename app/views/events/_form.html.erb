@@ -1,36 +1,42 @@
-<div class="event-form">
-  <%= form_for @event do |f| %>
-      <%= render 'shared/validation_error', object: @event %>
-      <div class="form-group">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: 'form-control' %>
-      </div>
+<div class="panel-body">
+  <div class="event-form">
+    <%= form_for @event do |f| %>
+        <%= render 'shared/validation_error', object: @event %>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
 
-      <div class="form-group">
-        <%= f.label :location, 'Location' %>
-        <%= f.text_field :location, class: 'form-control' %>
-      </div>
+        <div class="form-group">
+          <%= f.label :location, 'Location' %>
+          <%= f.text_field :location, class: 'form-control' %>
+          <%= f.hidden_field :lat %>
+          <%= f.hidden_field :lng %>
+          <%= f.hidden_field :country %>
+          <%= f.hidden_field :state %>
+        </div>
 
-      <div class='form-group'>
-        <%= f.label :date, "Date & Time" %>
-        <div class="input-group date">
-          <%= f.text_field :date, class: 'form-control' %>
-          <span class="input-group-addon">
+        <div class='form-group'>
+          <%= f.label :date, "Date & Time" %>
+          <div class="input-group date">
+            <%= f.text_field :date, class: 'form-control' %>
+            <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar fa fa-calendar"></span>
           </span>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <%= f.label :description %>
-        <%= f.text_area :description, class: 'form-control' %>
-      </div>
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, class: 'form-control tinymce' %>
+        </div>
 
-      <div class="form-group clearfix">
-        <%= f.submit class: 'btn btn-default pull-right' %>
-      </div>
+        <div class="form-group clearfix">
+          <%= f.submit class: 'btn btn-default pull-right' %>
+        </div>
 
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 <script type="text/javascript">
@@ -39,4 +45,61 @@
             format: 'Y-MM-DD HH:mm'
         });
     });
+
+    var autocomplete;
+    function init_autocomplete() {
+        var input = (document.getElementById('event_location'));
+        var location = {
+            lat: <%= @event.lat.present? ? @event.lat : 0 %>,
+            lng: <%= @event.lng.present? ? @event.lng : 0 %>
+        };
+        var options = {
+            location: location
+        };
+        autocomplete = new google.maps.places.Autocomplete(input, options);
+        autocomplete.addListener('place_changed', get_place);
+    }
+
+    function get_place() {
+        var place = autocomplete.getPlace();
+        console.log(place);
+        var lat = place.geometry.location.lat();
+        var lng = place.geometry.location.lng();
+        $("#event_lat").val(lat);
+        $("#event_lng").val(lng);
+        var components = place.address_components;
+        for (i = 0; i < components.length; i++) {
+            types = components[i].types;
+            if (types[0] == 'locality') {
+                $('#event_state').val(components[i].long_name);
+            }
+            else if (types[0] == 'country') {
+                $('#event_country').val(components[i].short_name);
+            }
+        }
+    }
+
+    function noSubmitOnReturn(e) {
+        if (e.keyCode == 13) {
+            return false;
+        }
+    }
+
+    $(document).ready(function () {
+        tinyMCE.init({
+            selector: ".tinymce",
+            menubar: false,
+            height: "225",
+            plugins: [
+                'advlist autolink link lists print preview hr anchor pagebreak spellchecker',
+                'searchreplace visualblocks visualchars code fullscreen insertdatetime nonbreaking',
+                'save table emoticons template paste textcolor code anchor '
+            ],
+            toolbar1: 'undo redo | styleselect | fontselect | fontsizeselect bold underline italic | link image media | forecolor backcolor table | emoticons'
+        });
+    });
+
+
 </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-m1XVD7c3PfBX_oxxKijOqeyNNqOSUW0&libraries=places&callback=init_autocomplete" async defer></script>

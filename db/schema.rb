@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160529134938) do
+ActiveRecord::Schema.define(version: 20160531123646) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -43,6 +43,10 @@ ActiveRecord::Schema.define(version: 20160529134938) do
     t.integer  "user_id",     limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.float    "lat",         limit: 24
+    t.float    "lng",         limit: 24
+    t.string   "country",     limit: 255
+    t.string   "state",       limit: 255
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

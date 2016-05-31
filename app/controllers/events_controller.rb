@@ -20,6 +20,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_id(params[:id])
+    @artist = @event.user
+    @events = []
   end
 
   def edit

@@ -3,16 +3,14 @@
 <div style="background: #fdfdfd;">
   <div style="background: #242729;">
     <div style="width: 85%; margin: auto; padding: 10px 0 5px 0; text-align: center;">
-      <%= image_tag('logo.png', style: 'width: 50px;') %>
+      <%= link_to root_url do %>
+          <%= image_tag('logo.png', style: 'width: 50px;') %>
+      <% end %>
       <h3 style="margin: 4px 0; color: #fdfdfd; font-size: 16px;"> New Artist Release </h3>
     </div>
   </div>
   <div style="width: 85%; margin: auto; padding: 10px 0 5px 0;">
     <%= yield %>
-    <p>
-      Thanks You, <br/>
-      NAR
-    </p>
   </div>
 </div>
 </body>

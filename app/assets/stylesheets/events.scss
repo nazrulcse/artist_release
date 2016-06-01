@@ -95,7 +95,7 @@
 .artist-events {
   ul {
     max-height: 250px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     margin: 0;
     padding: 0;

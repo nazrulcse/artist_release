@@ -33,6 +33,7 @@
         </li>
     <% else %>
         <li> <%= link_to 'LogIn', new_user_session_path %> </li>
+        <li> <%= link_to 'SignUp', new_user_registration_path %> </li>
     <% end %>
     <li id="site-search">
       <form class="form-wrapper" action="/search" method="get">

@@ -1,2 +1,11 @@
-<p> The page you are looking for is not found </p>
-<%= render 'product_description' %>
+<div class="wrap" style="margin: 0 auto; width: 100%;">
+  <div class="logo" style="text-align: center;">
+    <p style="color: #272727; font-size: 40px; margin-top: 1px;"> OOPS! - Could not Find the Page </p>
+    <%= image_tag('404-1.png') %>
+    <div class="sub">
+      <p>
+        <%= render 'product_description' %>
+      </p>
+    </div>
+  </div>
+</div>

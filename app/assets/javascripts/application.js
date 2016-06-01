@@ -16,6 +16,5 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require tinymce-jquery
-//= require turbolinks
 //= require bootstrap-typeahead
 //= require_tree .

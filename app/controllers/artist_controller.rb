@@ -1,5 +1,5 @@
 class ArtistController < ApplicationController
-  before_action :subscribed_user
+  before_action :subscribed_user, only: :profile
 
   def index
     @sub_category = Category.where('lower(name) = ?', params[:subcategory].downcase).first
@@ -13,7 +13,6 @@ class ArtistController < ApplicationController
     else
       redirect_to new_subscription_path
     end
-
   end
 
   def promotion

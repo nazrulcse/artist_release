@@ -6,3 +6,6 @@ production:
     DATABASE_PASSWORD: 'password'
 PUBLISHABLE_KEY: 'pk_test_fuVgqaEYDyxcMHpSwkZJo4fK'
 SECRET_KEY: 'sk_test_ATn6Cl5eVxgcwgMPgq5519YR'
+SMTP_USERNAME: 'noreplytravoasia@gmail.com'
+SMTP_PASSWORD: 'travoasia'
+SMTP_ADDRESS: 'smtp.gmail.com'

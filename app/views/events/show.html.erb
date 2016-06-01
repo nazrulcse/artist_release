@@ -13,7 +13,7 @@
             </li>
           </ul>
           <div class="event-details-image">
-            <%= image_tag('slider1.jpg') %>
+            <%= image_tag(@event.image_url.present? ? @event.image_url(:cover) : 'slider1.jpg') %>
           </div>
           <h3 class="main-title">Whats About</h3>
 
@@ -28,10 +28,16 @@
           <div id="floating-form">
             <div class="section no-border">
               <div id="map_canvas"></div>
-              <h3 class="main-title"> Event CountDown </h3>
+              <h3 class="main-title"><i class="fa fa-clock-o"></i> Event CountDown </h3>
 
               <div class="clock"></div>
               <div class="message"></div>
+              <div class="main-title">
+                <i class="fa fa-map-marker"></i> Event Location
+              </div>
+              <p>
+                <%= @event.location %>
+              </p>
             </div>
           </div>
         </div>
@@ -61,7 +67,7 @@
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
             return function () {
                 content = "<p>" + '<%= @event.title %>' + "</p>";
-                content += "<p class='map-link'>" + '<%= @event.short_address %>' + "</p>";
+                content += "<p class='map-link'>" + '<%= @event.location %>' + "</p>";
                 infowindow.setContent(content);
                 infowindow.open(map, marker);
             }

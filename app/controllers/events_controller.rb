@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: :show
 
   def index
-    @events = current_user.events
+    @events = current_user.events.order('id desc')
   end
 
   def new

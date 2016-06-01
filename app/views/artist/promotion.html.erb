@@ -44,12 +44,12 @@
                       <% @events.each do |event| %>
                           <li class="clearfix">
                             <div class="pull-left">
-                              <div> <%= link_to event.title, event %> </div>
-                              <span style="color: #CCCCCC;"> <%= event.location %> </span>
+                              <div> <%= link_to truncate(event.title, length: 35, omission: '...'), event %> </div>
+                              <span style="color: #aaaaaa;"> <%= event.short_address %> </span>
                             </div>
                             <div class="pull-right">
                               <div> <%= event.date.strftime('%a') %> </div>
-                              <span style="color: #CCCCCC;"> <%= event.date.strftime('%B, %d') %> </span>
+                              <span style="color: #aaaaaa;"> <%= event.date.strftime('%B, %d') %> </span>
                             </div>
                           </li>
                       <% end %>
@@ -145,7 +145,7 @@
 
             <div class="section contact-button-container">
               <div class="button-row">
-                <a class="btn btn-warning" href="#">CONTACT ROB HARKNESS</a>
+                <a class="btn btn-warning" href="#">CONTACT <%= @artist.first_name.upcase %></a>
               </div>
             </div>
 

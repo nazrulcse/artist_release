@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  mount_uploader :image, EventUploader
   belongs_to :user
   validates_presence_of :title, :location, :date
 

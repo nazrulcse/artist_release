@@ -17,21 +17,23 @@
       border-radius: 50%;
       color: #ffffff;
       display: block;
-      height: 28px;
-      padding: 6px 8px;
       text-align: center;
-      width: 30px;
+      width: 35px;
       &.facebook {
-        background: #4E339C;
+        background: #375490;
+        padding: 8px 16px 6px 12px;
       }
       &.google {
-        background: #D7311F;
+        background: #DB4A39;
+        padding: 7px 16px 7px 8px;
       }
       &.twitter {
-        background: #6F8FF5;
+        background: #00A0D0;
+        padding: 8px 16px 6px 12px;
       }
       &.linkedin {
-        background: #3C61BB;
+        background: #167F9D;
+        padding: 7px 16px 7px 12px;
       }
     }
   }

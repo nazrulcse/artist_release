@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :profile_pictures, allow_destroy: true
 
+  after_create :send_welcome_email
+
   def profile_image
     if profile_pictures.present?
       profile_pictures.first.image_url(:large)
@@ -29,37 +31,10 @@ class User < ActiveRecord::Base
     name << (last_name.present? ? ' ' << last_name : '')
   end
 
-  # def update_without_password(params, *options)
-  #
-  #   if params[:password].blank?
-  #     params.delete(:password)
-  #     params.delete(:password_confirmation) if params[:password_confirmation].blank?
-  #   end
-  #
-  #   result = update_attributes(params, *options)
-  #   clean_up_passwords
-  #   result
-  # end
+  private
 
-  # def update_with_password(params, *options)
-  #   current_password = params[:current_password]
-  #   params.delete(:current_password)
-  #
-  #   if params[:password].blank?
-  #     params.delete(:password)
-  #     params.delete(:password_confirmation) if params[:password_confirmation].blank?
-  #   end
-  #
-  #   # result = if valid_password?(current_password)
-  #   #            update_attributes(params, *options)
-  #   #          else
-  #   #            self.assign_attributes(params, *options)
-  #   #            self.valid?
-  #   #            self.errors.add(:current_password, current_password.blank? ? :blank : :invalid)
-  #   #            false
-  #   #          end
-  #
-  #   clean_up_passwords
-  #   # result
-  # end
+  def send_welcome_email
+    UserMailer.send_welcome_email(self).deliver
+  end
+
 end

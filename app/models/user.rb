@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :profile_pictures, allow_destroy: true
 
-  after_create :send_welcome_email
+  #after_create :send_welcome_email
 
   def profile_image
     if profile_pictures.present?
@@ -27,8 +27,11 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    name = first_name.present? ? first_name : ''
-    name << (last_name.present? ? ' ' << last_name : '')
+    if first_name.present?
+      first_name << last_name.present? ? ' ' << last_name : ''
+    else
+      last_name
+    end
   end
 
   private

@@ -10,7 +10,6 @@ class WelcomeController < ApplicationController
 
   def promotion
     @artist = User.find_by_id(params[:artist])
-    artisl.all
   end
 
 end

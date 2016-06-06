@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-# ruby '2.1.5'
+ruby '2.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -56,8 +56,14 @@ group :development, :test do
   gem 'byebug'
 end
 
-group :production do
-  gem 'pg'
+# group :production do
+#   gem 'pg'
+# end
+
+#use rspec-rails for test code helper
+group :development, :test do
+  gem 'rspec-rails', '~> 3.4'
+  gem 'minitest'
 end
 
 group :development do

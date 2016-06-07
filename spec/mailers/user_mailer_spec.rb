@@ -7,8 +7,8 @@ RSpec.describe UserMailer, type: :mailer do
   describe 'send_welcome_email' do
     let(:mail) { UserMailer.send_welcome_email(@user) }
     it 'Should check email address' do
-      exactly(mail.subject).to eq('Welcome To New Artist Release')
-      exactly(mail.to).to eq(@user.email)
+      expect(mail.subject).to eq('Welcome To New Artist Release')
+      expect(mail.to).to eq([@user.email])
     end
   end
 end

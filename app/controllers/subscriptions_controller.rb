@@ -13,7 +13,7 @@ class SubscriptionsController < ApplicationController
 
     customer = Stripe::Customer.create(
         :email => current_user.email,
-        :description => "Silvrback Order",
+        :description => 'New Artist Release Yearly Subscription',
         :card => params[:stripeToken],
         :plan => stripe_plan_name,
         :coupon => params[:coupon]
@@ -38,7 +38,7 @@ class SubscriptionsController < ApplicationController
 
   end
 
-  def delete
+  def destroy
 
   end
 end

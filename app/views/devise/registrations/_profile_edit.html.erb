@@ -219,10 +219,9 @@
     $('.category_select').on('change', function () {
         var category_id = this.value; // or $(this).val()
         $.ajax({
-            url: "<%= load_subcategory_path %>",
+            url: "/load_subcategory/" + category_id,
             type: 'get',
-            dataType: 'script',
-            data: {category_id: category_id},
+            dataType: 'script'
         });
     });
 

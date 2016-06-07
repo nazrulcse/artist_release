@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   get '/artists/:category/:subcategory' => 'artist#index', as: :artists_profile
   get '/profile' => 'artist#profile', as: :profile
   get '/profile/:id' => 'artist#promotion', as: :promotion_profile
-  get '/load_subcategory' => 'artist#load_subcategory', as: :load_subcategory
-  resources :subscriptions, only: [:new, :create, :delete]
+  get '/load_subcategory/:category_id' => 'artist#load_subcategory', as: :load_subcategory
+  resources :subscriptions, only: [:new, :create, :destroy]
   get '/search' => 'welcome#search'
 
   # Example of regular route:

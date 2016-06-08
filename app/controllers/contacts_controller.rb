@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-     @contact = Contact.create(contact_params)
+    @contact = Contact.create(contact_params)
     if @contact.save
       redirect_to root_path
     else

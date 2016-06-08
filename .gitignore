@@ -27,3 +27,5 @@ public/lesson/*
 
 # Ignore application configuration
 /config/application.yml
+.rspec
+coverage

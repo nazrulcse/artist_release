@@ -14,6 +14,16 @@ RSpec.describe ArtistController, type: :controller do
         expect(assigns(:artists)).to eq([@user])
       end
   end
+
+=begin
+  describe 'get :profile' do
+    it 'Should request to ArtistController profile' do
+      get :profile
+      expect(response).to be_success
+    end
+  end
+=end
+
   describe 'get :promotion' do
     it 'Should request to ArtistController promotion' do
       get :promotion, id: @user.id
@@ -21,12 +31,12 @@ RSpec.describe ArtistController, type: :controller do
       expect(assigns(:events)).to eq([@event])
     end
   end
+
   describe 'get :load_subcategory' do
     it 'Should request to ArtistController load_subcategory' do
-      xhr 'get','load_subcategory', delivery_method: :deliver, status: :pending, format: 'js'
-      get :load_subcategory, category_id: @top_category.id
+      get :load_subcategory, category_id: @top_category.id, format: 'js'
       expect(response).to be_success
-      expect(assigns(:subcategories)).to eq(@sub_category)
+      expect(assigns(:subcategories)).to eq([@sub_category])
     end
   end
 end

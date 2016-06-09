@@ -7,12 +7,8 @@ class ArtistController < ApplicationController
   end
 
   def profile
-    if current_user.subscription.present?
-      @resource = current_user
-      @resource.profile_pictures.build
-    else
-      redirect_to new_subscription_path
-    end
+    @resource = current_user
+    @resource.profile_pictures.build
   end
 
   def promotion

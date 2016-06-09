@@ -9,7 +9,7 @@ RSpec.describe ContactsController, type: :controller do
     end
   end
 
-  describe 'post :create' do
+  describe 'ContactsController' do
     it 'should create a contact' do
       post :create, contact: {first_name: 'Firstname', last_name: 'Lastname', email: 'email@gmail.com', message: 'some message', phone:'123456789'}.to_hash
       expect(response).to redirect_to(root_path)

@@ -27,8 +27,10 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    if first_name.present?
-      first_name << last_name.present? ? ' ' << last_name : ''
+    if first_name.present? && last_name.present?
+      first_name << ' ' << last_name
+    elsif first_name.present?
+      first_name
     else
       last_name
     end

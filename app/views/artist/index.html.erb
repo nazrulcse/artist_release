@@ -5,12 +5,42 @@
   </div>
 
   <div class="promotion-profile reset-padding artists-list">
-    <ul class="row first" data-bsp-ul-id="bsp-atuw" data-bsp-ul-index="0">
+    <ul class="row featured-profile-list">
       <% @artists.each do |artist| %>
-          <li class="col-lg-2 col-md-4 col-sm-3 col-xs-4 col-xxs-12 bspHasModal" data-bsp-li-index="0">
+          <li class="col-md-4">
             <%= link_to promotion_profile_path(artist.id) do %>
-                <%= image_tag(artist.profile_image, class: 'img-responsive') %>
-                <div class="text"> <%= artist.full_name %> </div>
+                <div class="info-container <%= artist.category.name.downcase %>">
+                  <div class="main-img" style="background:url(<%= image_url(artist.profile_image) %>) center center no-repeat; background-size:cover;"></div>
+                  <h1 class="text-centered"><%= artist.full_name %></h1>
+
+                  <h2 class="subheader text-centered"><%= artist.category.name %>, <%= artist.sub_category.name %></h2>
+
+                  <h2 class="subheader text-centered"><%= artist.city %>, <%= artist.estate %></h2>
+
+                  <div class="bio">
+                    <%= raw truncate(artist.bio, length: 200) %>
+                    <div class="rate-list">
+                      <div class="rate-item clearfix">
+                        <div class="label">Track</div>
+                        <div class="value">
+                          <%= artist.sub_category.name %>, <%= artist.category.name %>
+                        </div>
+                      </div>
+                      <div class="rate-item clearfix">
+                        <div class="label"> Experience</div>
+                        <div class="value">
+                          <% if artist.category.name.downcase == 'music' %>
+                              <%= artist.how_long_play %>
+                          <% elsif artist.category.name.downcase == 'models' %>
+                              <%= artist.how_long_perform %>
+                          <% else %>
+                              <%= artist.how_long_write %>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             <% end %>
           </li>
       <% end %>

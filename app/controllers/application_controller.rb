@@ -20,8 +20,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    nex_path = resource.subscription.present? ? profile_path : new_subscription_path
-    request.env['omniauth.origin'] || stored_location_for(resource) || nex_path
+    next_path = resource.subscription.present? ? profile_path : new_subscription_path
+    request.env['omniauth.origin'] || stored_location_for(resource) || next_path
   end
 
   def subscribed_user

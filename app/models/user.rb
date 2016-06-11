@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :profile_pictures, allow_destroy: true
 
-  #after_create :send_welcome_email
+  after_create :send_welcome_email if Rails.env.production?
 
   def profile_image
     if profile_pictures.present?
@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   private
 
   def send_welcome_email
-    UserMailer.send_welcome_email(self).deliver
+    UserMailer.send_welcome_email(self).deliver_now
   end
 
 end

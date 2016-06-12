@@ -224,3 +224,88 @@
     }
   }
 }
+
+.featured-profile-list {
+  text-align: center;
+  .music {
+    background: rgba(0, 0, 0, 0) asset-url('bg.bio.jpg') no-repeat scroll 0 0;
+  }
+  .books {
+    background: rgba(0, 0, 0, 0) asset-url('book_bg.jpg') no-repeat scroll 0 0 / 100% auto;
+  }
+  .models {
+    background: rgba(0, 0, 0, 0) asset-url('model_bg.jpeg') no-repeat scroll 0 0 / 100% 50%;
+  }
+  .info-container {
+    min-height: 240px;
+    padding-top: 25px;
+    .main-img {
+      border: 2px solid #fff;
+      border-radius: 112px;
+      display: inline-block;
+      height: 112px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      width: 112px;
+    }
+  }
+  h1 {
+    color: #fff;
+    font-size: 20px;
+    margin: 0;
+    padding: 0 0 5px;
+    text-transform: uppercase;
+  }
+  h2 {
+    color: #ccc;
+    font-size: 14px;
+    margin: 0;
+    padding-bottom: 10px;
+  }
+  .bio {
+    background-color: #fff;
+    border-bottom: 1px solid #e3e3e3;
+    border-left: 1px solid #e3e3e3;
+    border-right: 1px solid #e3e3e3;
+    display: block;
+    margin-top: 20px;
+    min-height: 245px;
+    line-height: 25px;
+    font-size: 15px;
+    padding: 15px;
+    position: relative;
+    text-align: left;
+    .rate-list {
+      padding-top: 10px;
+      .rate-item {
+        padding-top: 7px;
+      }
+      .label {
+        color: #000;
+        float: left;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: normal;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        width: 30%;
+      }
+      .value {
+        float: left;
+        line-height: normal;
+        margin: 0;
+        padding: 0;
+        text-align: right;
+        width: 70%;
+      }
+    }
+  }
+  a {
+    color: #333333;
+    &:hover {
+      text-decoration: none;
+      color: #333333;
+    }
+  }
+}

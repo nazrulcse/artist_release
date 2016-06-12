@@ -5,7 +5,9 @@ class WelcomeController < ApplicationController
   end
 
   def search
-    
+    @user_with_cat_subcat = User.joins(:category).joins(:sub_category)
+    @searching_params = params[:search]
+    @results = @user_with_cat_subcat.where("first_name like :search_item or last_name like :search_item or city like :search_item or country like :search_item or categories.name like :search_item or sub_categories_users.name like :search_item", :search_item => "%#{params[:search]}%")
   end
 
   def promotion

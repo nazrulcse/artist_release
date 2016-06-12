@@ -1,7 +1,7 @@
 development:
-    DATABASE_PASSWORD: 'password'
+    DATABASE_PASSWORD: 'time'
 test:
-    DATABASE_PASSWORD: 'password'
+    DATABASE_PASSWORD: 'time'
 production:
     DATABASE_PASSWORD: 'password'
 PUBLISHABLE_KEY: 'pk_test_fuVgqaEYDyxcMHpSwkZJo4fK'

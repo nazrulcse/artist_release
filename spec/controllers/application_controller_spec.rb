@@ -25,7 +25,12 @@ RSpec.describe ApplicationController, type: :controller do
     it 'should return after sign in path'do
       sign_in(@user)
       application_obj = ApplicationController.new
-      expect(application_obj.after_sign_in_path_for(@user)).to eq('/subscriptions/new')
+      controller.after_sign_in_path_for(@user).should == profile_path
+    end
+    it 'should return after sign in path'do
+      sign_in(@user_without_subscription)
+      application_obj = ApplicationController.new
+      controller.after_sign_in_path_for(@user_without_subscription).should == new_subscription_path
     end
   end
 end

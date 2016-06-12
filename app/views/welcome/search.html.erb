@@ -1,5 +1,30 @@
 <div class="container">
-  <h1>
-    I am working on this, still not completed yet :(
-  </h1>
+  <div class="row">
+      <% if @results.length > 0%>
+        <% @results.each do |result| %>
+          <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 col-lg-10 col-lg-offset-1 search-view">
+            <div class="col-md-3 image-view">
+              <%= image_tag(result.profile_image, alt: 'Site Logo', class: "img-responsive") %>
+            </div>
+            <div class="col-md-7 info-view">
+             <h3>
+               <%= link_to promotion_profile_path(id: result.id) do %>
+                   <%= result.first_name %> <%= result.last_name %>
+               <% end %>
+             </h3>
+             <h4>
+               <%= result.email %>
+             </h4>
+            </div>
+            <div class="col-md-2 address-vew">
+              <p><%= result.city %> <%= result.country %></p>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+          <div class="search-view">
+            <h1><b>"<%= @searching_params %>"</b> is not available</h1>
+          </div>
+      <% end %>
+  </div>
 </div>

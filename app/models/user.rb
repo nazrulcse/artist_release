@@ -36,6 +36,26 @@ class User < ActiveRecord::Base
     end
   end
 
+  def short_address
+    if country.present? && estate.present?
+      estate << ', ' << country
+    elsif country.present?
+      country
+    else estate.present?
+      estate
+    end
+  end
+
+  def track
+    if category.name.present? && sub_category.name.present?
+      sub_category.name << ', ' << category.name
+    elsif category_id.name.present?
+      category.name
+    else
+      sub_category.name
+    end
+  end
+
   private
 
   def send_welcome_email

@@ -1,25 +1,44 @@
-.search-view {
-  background: white;
-  border-bottom: solid 1px #CCCCCC;
-  color: black;
-  padding: 8px 2px 8px 3px;
+.search-result-wrapper {
+  background: #ffffff;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   &:first-child {
     margin-top: 2%;
   }
   &:last-child {
     margin-bottom: 2%;
   }
-  .image-view {
-    height: 100%;
+  .artist-info {
+    border-bottom: solid 1px #CCCCCC;
+  }
+  .search-profile-img-wrapper {
+    padding: 10px;
+    text-align: center;
+    width: 100px;
+    float: left;
     img {
-      width: 50%;
-      box-shadow: 2px 2px 2px #888888;
+      border: none;
+      width: 85px;
     }
   }
-  .info-view {
-    margin-top: 0;
-    padding-top: 0;
-    color: black;
+  .artist-info-wrapper {
+    width: calc(100% - 120px);
+    float: left;
+    color: #333333;
+    .basic-info {
+      padding-top: 10px;
+      h4 {
+        margin-bottom: 0px;
+      }
+    }
+    .address-info {
+      padding-top: 10px;
+    }
   }
-
+  .no-content {
+    .alert {
+      padding-left: 30px;
+    }
+  }
 }

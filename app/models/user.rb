@@ -41,17 +41,17 @@ class User < ActiveRecord::Base
       estate << ', ' << country
     elsif country.present?
       country
-    else estate.present?
+    elsif estate.present?
       estate
     end
   end
 
   def track
-    if category.name.present? && sub_category.name.present?
-      sub_category.name << ', ' << category.name
-    elsif category_id.name.present?
+    if category.present? && sub_category.present?
+      "#{sub_category.name}, #{category.name}"
+    elsif category.present?
       category.name
-    else
+    elsif sub_category.present?
       sub_category.name
     end
   end

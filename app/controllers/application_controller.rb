@@ -6,15 +6,15 @@ class ApplicationController < ActionController::Base
   helper_method :resource, :resource_name, :devise_mapping
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) do |u|
+    devise_parameter_sanitizer.for(:sign_up) do |u|
       u.permit(:first_name, :email, :password, :password_confirmation, :last_name)
     end
 
-    devise_parameter_sanitizer.permit(:account_update) do |u|
+    devise_parameter_sanitizer.for(:account_update) do |u|
       u.permit! #(:first_name,:current_password,  :email, :password, :password_confirmation,:last_name,:country,:address, :bio, :city, :estate, :image, :category_id,:profile_pictures_attributes, :sub_category_id)
     end
 
-    devise_parameter_sanitizer.permit(:sign_in) do |u|
+    devise_parameter_sanitizer.for(:sign_in) do |u|
       u.permit(:email, :password)
     end
   end

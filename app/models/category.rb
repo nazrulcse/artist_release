@@ -9,4 +9,8 @@ class Category < ActiveRecord::Base
   def self.top_categories
     Category.where(category_id: [nil, ''])
   end
+
+  def approved_profiles
+    users.where(is_approved: true)
+  end
 end

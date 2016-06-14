@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613111343) do
+ActiveRecord::Schema.define(version: 20160614071953) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -119,12 +119,12 @@ ActiveRecord::Schema.define(version: 20160613111343) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                    limit: 255,   default: "", null: false
-    t.string   "encrypted_password",       limit: 255,   default: "", null: false
+    t.string   "email",                    limit: 255,   default: "",    null: false
+    t.string   "encrypted_password",       limit: 255,   default: "",    null: false
     t.string   "reset_password_token",     limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",            limit: 4,     default: 0,  null: false
+    t.integer  "sign_in_count",            limit: 4,     default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",       limit: 255
@@ -137,8 +137,8 @@ ActiveRecord::Schema.define(version: 20160613111343) do
     t.string   "confirmation_token",       limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
     t.integer  "category_id",              limit: 4
     t.integer  "sub_category_id",          limit: 4
     t.string   "dob",                      limit: 255
@@ -155,6 +155,7 @@ ActiveRecord::Schema.define(version: 20160613111343) do
     t.string   "how_long_perform",         limit: 255
     t.string   "how_long_write",           limit: 255
     t.float    "age",                      limit: 24
+    t.boolean  "is_approved",                            default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

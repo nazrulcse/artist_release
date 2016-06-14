@@ -152,6 +152,11 @@ ActiveAdmin.setup do |config|
   #
   config.localize_format = :long
 
+
+  config.before_filter do
+    params.permit!
+  end
+
   # == Setting a Favicon
   #
   # config.favicon = 'favicon.ico'

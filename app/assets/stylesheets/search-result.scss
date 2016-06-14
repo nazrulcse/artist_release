@@ -15,25 +15,38 @@
   .search-profile-img-wrapper {
     padding: 10px;
     text-align: center;
-    width: 100px;
+    width: 73px;
     float: left;
     img {
-      border: none;
-      width: 85px;
+      border: solid 1px #CCCCCC;
+      width: 55px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
     }
   }
   .artist-info-wrapper {
-    width: calc(100% - 120px);
+    width: calc(100% - 75px);
     float: left;
     color: #333333;
     .basic-info {
-      padding-top: 10px;
       h4 {
-        margin-bottom: 0px;
+        margin-bottom: 2px;
+        color: #337ab7;
+        font-weight: bold;
+      }
+      p {
+        color: #444444;
+      }
+      .artist-track {
+        font-size: 14px;
+        color: #999999;
+        margin-bottom: 5px;
       }
     }
     .address-info {
       padding-top: 10px;
+      color: #999999;
     }
   }
   .no-content {

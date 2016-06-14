@@ -19,13 +19,12 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find_by_id(params[:id])
+    @event = Event.friendly.find(params[:id])
     @artist = @event.user
-    @events = []
   end
 
   def edit
-    @event = current_user.events.find_by_id(params[:id])
+    @event = current_user.events.friendly.find(params[:id])
   end
 
   def update

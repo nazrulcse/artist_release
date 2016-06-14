@@ -19,6 +19,6 @@
   <h3 class="reset-top-margin"> <%= link_to event.title, event, class: 'event-link' %> </h3>
 
   <p>
-    <%= truncate(event.description, length: 150, omission: '...') %>
+    <%= raw truncate(event.description, length: 150, omission: '...') %>
   </p>
 </div>

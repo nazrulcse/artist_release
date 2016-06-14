@@ -4,7 +4,7 @@
       <div class="col-md-8">
         <div class="bio-content">
 
-          <div class="bio-box">
+          <div class="bio-box <%= @artist.category.name.downcase if @artist.category.present? %>-bg">
             <div style="background:url('<%= asset_path(@artist.profile_image) %>') center center no-repeat; background-size:cover;" class="main-img">&nbsp;</div>
             <h1 class=""> <%= @artist.full_name %> </h1>
 
@@ -44,8 +44,8 @@
                       <% @events.each do |event| %>
                           <li class="clearfix">
                             <div class="pull-left">
-                              <div> <%= link_to truncate(event.title, length: 35, omission: '...'), event %> </div>
-                              <span style="color: #aaaaaa;"> <%= event.short_address %> </span>
+                              <div> <%= link_to truncate(event.title, length: 35, omission: '...'), event_path(event.slug) %> </div>
+                              <span class="profile-event-address"> <i class="fa fa-map-marker"></i> <%= event.short_address %> </span>
                             </div>
                             <div class="pull-right">
                               <div> <%= event.date.strftime('%a') %> </div>
@@ -152,10 +152,10 @@
 
             <div class="section">
               <div class="button-row">
-                <a data-share-message="Check out Rob Harkness on Studiotime.io http://www.studiotime.io/profile/rob-harkness/" class="btn btn-info btn-large twitter twitter-share-button" href="http://www.twitter.com/share?url=http://www.studiotime.io/profile/rob-harkness/">
+                <a class="btn btn-info btn-large twitter twitter-share-button" href="http://www.twitter.com/share?url=<%= promotion_profile_url(@artist) %>">
                   <i class="fa fa-twitter"></i> Share On Twitter
                 </a>
-                <a data-share-url="http://www.studiotime.io/profile/rob-harkness/" class="btn btn-info" href="https://www.facebook.com/sharer/sharer.php?u=http://www.studiotime.io/profile/rob-harkness/"><i class="fa fa-facebook"></i>
+                <a class="btn btn-info" href="https://www.facebook.com/sharer/sharer.php?u=<%= promotion_profile_url(@artist) %>"><i class="fa fa-facebook"></i>
                   Share On Facebook
                 </a>
               </div>

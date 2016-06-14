@@ -103,6 +103,10 @@
     li {
       padding: 3px 0;
       border-bottom: solid 1px #CCCCCC;
+      .profile-event-address {
+        color: #aaaaaa;
+        font-size: 13px;
+      }
       &:last-child {
         border: none;
       }

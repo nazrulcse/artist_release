@@ -1,6 +1,7 @@
 class ArtistController < ApplicationController
   before_action :subscribed_user, only: :profile
   protect_from_forgery except: :load_subcategory
+
   def index
     @sub_category = Category.where('lower(name) = ?', params[:subcategory].downcase).first
     @artists = @sub_category.users
@@ -12,7 +13,7 @@ class ArtistController < ApplicationController
   end
 
   def promotion
-    @artist = User.find_by_id(params[:id])
+    @artist = User.friendly.find(params[:id])
     @events = @artist.events
   end
 

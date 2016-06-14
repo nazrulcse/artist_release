@@ -8,8 +8,8 @@
     <ul class="row featured-profile-list">
       <% @artists.each do |artist| %>
           <li class="col-md-4">
-            <%= link_to promotion_profile_path(artist.id) do %>
-                <div class="info-container <%= artist.category.name.downcase %>">
+            <%= link_to promotion_profile_path(artist.slug) do %>
+                <div class="info-container <%= artist.category.name.downcase if artist.category.present? %>-bg">
                   <div class="main-img" style="background:url(<%= image_url(artist.profile_image) %>) center center no-repeat; background-size:cover;"></div>
                   <h1 class="text-centered"><%= artist.full_name %></h1>
 

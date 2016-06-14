@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   belongs_to :sub_category, class_name: 'Category', foreign_key: 'sub_category_id'
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  extend FriendlyId
+  friendly_id :slug_candidates, use: :slugged
 
   accepts_nested_attributes_for :profile_pictures, allow_destroy: true
 
@@ -60,6 +62,14 @@ class User < ActiveRecord::Base
 
   def send_welcome_email
     UserMailer.send_welcome_email(self).deliver_now
+  end
+
+  def slug_candidates
+    [
+        [:first_name, :last_name],
+        :first_name,
+        :last_name
+    ]
   end
 
 end

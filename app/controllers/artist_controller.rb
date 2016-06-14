@@ -4,7 +4,7 @@ class ArtistController < ApplicationController
 
   def index
     @sub_category = Category.where('lower(name) = ?', params[:subcategory].downcase).first
-    @artists = @sub_category.users
+    @artists = @sub_category.users.where('is_approved = true')
   end
 
   def profile
@@ -13,8 +13,13 @@ class ArtistController < ApplicationController
   end
 
   def promotion
-    @artist = User.friendly.find(params[:id])
-    @events = @artist.events
+    @artist = User.find_by_id(params[:id])
+    if @artist.is_approved == true
+      @events = @artist.events
+    else
+      redirect_to root_path
+    end
+
   end
 
   def load_subcategory

@@ -63,10 +63,7 @@ group :development, :test do
   gem 'simplecov', :require => false
 end
 
-group :production do
-  gem 'pg'
-end
-
+gem 'pg'
 #use rspec-rails for test code helper
 group :development, :test do
   gem 'rspec-rails', '~> 3.4'

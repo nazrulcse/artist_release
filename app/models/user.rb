@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
       band: 'Band',
       invidual: 'Individual'
   }
-  belongs_to :security_question
+  # belongs_to :security_question
   belongs_to :category
   has_many :profile_pictures
   has_many :events

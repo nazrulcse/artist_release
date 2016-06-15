@@ -34,7 +34,7 @@ gem 'rmagick'
 gem 'carrierwave'
 # Use devise for authentication purpose
 # gem 'devise'
-gem 'devise','~> 3.2'
+gem 'devise', '~> 3.2'
 gem 'bxslider-rails'
 gem 'stripe', '1.30.0'
 
@@ -47,7 +47,7 @@ gem 'bootstrap-datepicker-rails'
 
 #active admin for admin panel
 gem 'activeadmin', '~> 1.0.0.pre2'
-
+gem 'meta-tags'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

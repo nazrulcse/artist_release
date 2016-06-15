@@ -6,7 +6,6 @@
 //
 // For example, to change the sidebar width:
 // $sidebar-width: 242px;
-
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
@@ -15,3 +14,17 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+.pagination {
+  li {
+    display: inline-block;
+    font-size: 12px;
+    a {
+      padding: 5px 8px;
+    }
+  }
+}
+
+.pagination_information {
+  margin-top: 5px;
+  font-size: 12px;
+}

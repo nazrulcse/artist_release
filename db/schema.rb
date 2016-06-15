@@ -158,8 +158,8 @@ ActiveRecord::Schema.define(version: 20160614083425) do
     t.string   "how_long_perform",         limit: 255
     t.string   "how_long_write",           limit: 255
     t.float    "age",                      limit: 24
-    t.string   "slug",                     limit: 255
     t.boolean  "is_approved",                            default: false
+    t.string   "slug",                     limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

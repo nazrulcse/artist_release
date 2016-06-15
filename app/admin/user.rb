@@ -1,5 +1,5 @@
-ActiveAdmin.register User do
-
+ActiveAdmin.register User, as: 'All Users' do
+  menu parent: 'Users'
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -12,6 +12,38 @@ ActiveAdmin.register User do
 #   permitted << :other if resource.something?
 #   permitted
 # end
+  controller do
+    defaults :finder => :find_by_slug
+  end
 
+  index do
+    column :email
+    column :first_name
+    column :last_name
+    column :middle_name
+    column :dob
+    column :address
+    column :city
+    column :estate
+    column :country
+    column 'Approved' do |user|
+      if user.is_approved
+        link_to 'Deactivate', deactivated_admin_all_user_path(user)
+      else
+        link_to 'Activate', activated_admin_all_user_path(user)
+      end
+    end
+    actions
+  end
 
+  member_action :deactivated do
+    user = User.friendly.find(params[:id])
+    user.update_attribute(:is_approved, false)
+    redirect_to request.referer, notice: "Successfully Deactivated!"
+  end
+  member_action :activated do
+    user = User.friendly.find(params[:id])
+    user.update_attribute(:is_approved, true)
+    redirect_to request.referer, notice: "Successfully activated!"
+  end
 end

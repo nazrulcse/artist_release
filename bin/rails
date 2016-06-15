@@ -1,5 +1,5 @@
 #!/usr/bin/env rubygem 'pg'
-
+require 'pg'
 begin
   load File.expand_path('../spring', __FILE__)
 rescue LoadError => e

@@ -4,6 +4,7 @@ ruby '2.2.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 
+gem 'pg'
 gem 'tinymce-rails'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2', '0.3.18'
@@ -63,9 +64,6 @@ group :development, :test do
   gem 'simplecov', :require => false
 end
 
-group :production do
-  gem 'pg'
-end
 #use rspec-rails for test code helper
 group :development, :test do
   gem 'rspec-rails', '~> 3.4'

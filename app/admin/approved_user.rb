@@ -19,7 +19,7 @@ ActiveAdmin.register User, as: "Approved Users" do
     column :city
     column :estate
     column :country
-    column :is_approved do |user|
+    column 'approved' do |user|
       link_to 'Deactivate', deactivated_admin_approved_user_path(user)
     end
     actions

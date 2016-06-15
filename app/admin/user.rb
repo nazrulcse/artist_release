@@ -26,11 +26,11 @@ ActiveAdmin.register User, as: 'All Users' do
     column :city
     column :estate
     column :country
-    column :is_approved do |user|
+    column 'Approved' do |user|
       if user.is_approved
         link_to 'Deactivate', deactivated_admin_all_user_path(user)
       else
-        link_to 'Activate', approved_admin_all_user_path(user)
+        link_to 'Activate', activated_admin_all_user_path(user)
       end
     end
     actions
@@ -41,7 +41,7 @@ ActiveAdmin.register User, as: 'All Users' do
     user.update_attribute(:is_approved, false)
     redirect_to request.referer, notice: "Successfully Deactivated!"
   end
-  member_action :approved do
+  member_action :activated do
     user = User.friendly.find(params[:id])
     user.update_attribute(:is_approved, true)
     redirect_to request.referer, notice: "Successfully activated!"

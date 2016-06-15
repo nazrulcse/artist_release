@@ -19,8 +19,8 @@ ActiveAdmin.register User, as: "Pending Users" do
     column :city
     column :estate
     column :country
-    column :is_approved do |user|
-      link_to 'approve', approved_admin_pending_user_path(user)
+    column 'Approved' do |user|
+      link_to 'activate', approved_admin_pending_user_path(user)
     end
     actions
   end

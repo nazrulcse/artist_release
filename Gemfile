@@ -69,8 +69,9 @@ end
 
 #use rspec-rails for test code helper
 group :development, :test do
-  gem 'rspec-rails', '~> 3.4'
-  gem 'minitest'
+  gem 'factory_girl_rails'
+  gem "minitest-rails"
+  gem 'faker', '~> 1.6', '>= 1.6.3'
 end
 
 group :development do

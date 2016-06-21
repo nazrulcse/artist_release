@@ -16,6 +16,10 @@ module ArtistRelease
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
 
+    config.generators do |g|
+      g.test_framework :minitest, spec: true
+    end
+
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.

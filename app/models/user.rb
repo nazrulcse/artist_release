@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
 
   def full_name
     if first_name.present? && last_name.present?
-      first_name << ' ' << last_name
+      "#{first_name} #{last_name}"
     elsif first_name.present?
       first_name
     else
@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
 
   def short_address
     if country.present? && estate.present?
-      estate << ', ' << country
+      "#{estate}, #{country}"
     elsif country.present?
       country
     elsif estate.present?

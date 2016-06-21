@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :prepare_meta_tags, if: 'request.get?'
   helper_method :resource, :resource_name, :devise_mapping
 
   def configure_permitted_parameters
@@ -49,4 +50,41 @@ class ApplicationController < ActionController::Base
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  private
+
+  def prepare_meta_tags(options={})
+    site_name = 'New Artist Release'
+    title = options[:title] || [controller_name, action_name].join(' ')
+    description = options[:description] || 'Since 2000, musical artists, models, and book authors worldwide have relied on New Artist Release to promote their talent to the world'
+    image = options[:image] || 'logo.png'
+    current_url = request.url
+
+    # Let's prepare a nice set of defaults
+    defaults = {
+        site: site_name,
+        title: title,
+        image: image,
+        description: description,
+        keywords: %w[web software development mobile app],
+        twitter: {
+            site_name: site_name,
+            site: '@NAR',
+            card: 'summary',
+            description: description,
+            image: ActionController::Base.helpers.image_url(image),
+        },
+        og: {
+            url: current_url,
+            site_name: site_name,
+            title: title,
+            image: ActionController::Base.helpers.image_url(image),
+            description: description,
+            type: 'website'
+        }
+    }
+    options.reverse_merge!(defaults)
+    set_meta_tags options
+  end
+
 end

@@ -19,6 +19,12 @@ class ArtistController < ApplicationController
     else
       redirect_to root_path
     end
+    options = {
+        title: "New Artist Release Profile #{@artist.full_name}",
+        description: "#{@artist.bio.html_safe}",
+        image: @artist.profile_image
+    }
+    prepare_meta_tags(options)
   end
 
   def load_subcategory

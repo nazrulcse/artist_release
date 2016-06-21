@@ -4,6 +4,7 @@ ruby '2.2.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 
+gem 'pg'
 gem 'tinymce-rails'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2', '0.3.18'
@@ -37,7 +38,7 @@ gem 'rmagick'
 gem 'carrierwave'
 # Use devise for authentication purpose
 # gem 'devise'
-gem 'devise','~> 3.2'
+gem 'devise', '~> 3.2'
 gem 'bxslider-rails'
 gem 'stripe', '1.30.0'
 
@@ -50,7 +51,7 @@ gem 'bootstrap-datepicker-rails'
 
 #active admin for admin panel
 gem 'activeadmin', '~> 1.0.0.pre2'
-
+gem 'meta-tags'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -61,10 +62,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'simplecov', :require => false
-end
-
-group :production do
-  gem 'pg'
 end
 
 #use rspec-rails for test code helper

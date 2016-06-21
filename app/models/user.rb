@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   def profile_image
     if profile_pictures.present?
-      profile_pictures.first.image_url(:large)
+      profile_pictures.first.image.url(:large)
     else
       'profile_image.png'
     end

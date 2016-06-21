@@ -52,6 +52,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {:host => 'newartistrelease.herokuapp.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.asset_host = 'http://newartistrelease.herokuapp.com'
+  config.action_controller.asset_host = 'http://newartistrelease.herokuapp.com'
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]

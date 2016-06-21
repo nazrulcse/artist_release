@@ -13,9 +13,9 @@
             <h2 class="subheader"><%= @artist.estate %>, <%= @artist.city %>, <%= @artist.country %></h2>
 
             <div class="social-info">
-              <a target="_new" class="facebook-likes" href="http://www.facebook.com/barnproductions">
+              <a class="facebook-likes" href="javascript:void(0);">
                 <i class="fa fa-facebook-square"></i>
-                <span data-fb-id="barnproductions" class="facebook-like-count">1,149</span>
+                <span data-fb-id="barnproductions" class="facebook-like-count"><%= facebook_likes(promotion_profile_url(@artist)) %></span>
                 Likes
               </a>
             </div>
@@ -167,9 +167,10 @@
     </div>
   </div>
 </div>
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js"></script>
 <script type="text/javascript">
     $(function () {
         $("a[rel^='prettyPhoto']").prettyPhoto({autoplay_slideshow: false, social_tools: '', show_title: ''});
+        $(".artist-events ul").niceScroll();
     });
 </script>

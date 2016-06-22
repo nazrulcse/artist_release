@@ -8,5 +8,7 @@ FactoryGirl.define do
     city Faker::Address.city
     country Faker::Address.country
     estate Faker::Address.state
+    bio Faker::Lorem.paragraph
+    band 'band'
   end
 end

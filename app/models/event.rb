@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
 
   def short_address
     if country.present? && state.present?
-      country << ', ' << state
+      "#{country}, #{state}"
     elsif country.present?
       country
     elsif state.present?

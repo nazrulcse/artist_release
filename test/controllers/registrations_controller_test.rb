@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class RegistrationsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+
+  end
+
+  test "the truth" do
+    assert true
+  end
 end

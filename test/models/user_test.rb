@@ -9,19 +9,8 @@ class UserTest < ActiveSupport::TestCase
     @user_with_first_name = FactoryGirl.create(:user, last_name: nil,sub_category_id: @sub_category.id, estate: nil)
     @user_with_profile_picture = FactoryGirl.create(:user)
     @profile_picture = FactoryGirl.create(:profile_picture, user_id: @user_with_profile_picture.id)
-    # @category = Category.create!(name:'Music', description: 'Something')
-    # @sub_category = Category.create!(name:'Rok', description: 'Something', category_id: @category.id)
-    # @user = User.create!(email: 'testfull@gmail.com', password: '123456789', first_name: 'xyz', last_name: 'xyz', country: 'Bangladesh', estate: 'Dhaka', category_id: @category.id, sub_category_id: @sub_category.id)
-    # @user_with_last_name = User.create!(email: 'test@gmail.com', password: '123456789', last_name: 'xyz', estate: 'dhaka', category_id: @category.id)
-    # @user_with_first_name = User.create!(email: 'test1@gmail.com', password: '123456789', first_name: 'xyz', country: 'Bangaldesh', sub_category_id: @sub_category.id)
-    # @user_with_profile_picture = User.create!(email: 'test2@gmail.com', password: '123456789', first_name: 'xyz')
-    # @profile_picture = ProfilePicture.create!(user_id: @user_with_profile_picture.id, image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'users', 'images', 'logo_image.png')))
-  end
 
-  # test 'should send welcome email' do
-  #   @user.send(:send_welcome_email)
-  #   ActionMailer::Base.deliveries.first.subject.should eq('Welcome To New Artist Release')
-  # end
+  end
 
   test 'Should return full_name with both first name and last name' do
     assert_not_equal @user.full_name, nil
@@ -76,5 +65,9 @@ class UserTest < ActiveSupport::TestCase
   test 'Should return short address without category' do
     assert_not_equal @user_with_first_name.track, nil
     assert_equal @user_with_first_name.track, @sub_category.name
+  end
+  test 'should send welcome email' do
+    @user.send(:send_welcome_email)
+    assert_equal ActionMailer::Base.deliveries.first.subject, 'Welcome To New Artist Release'
   end
 end

@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.is_a?(AdminUser)
-      stored_location_for(resource) || admin_dashboard_path
+      stored_location_for(resource) || '/admin'
     elsif resource.is_a?(User)
       next_path = resource.subscription.present? ? profile_path : new_subscription_path
       request.env['omniauth.origin'] || stored_location_for(resource) || next_path
